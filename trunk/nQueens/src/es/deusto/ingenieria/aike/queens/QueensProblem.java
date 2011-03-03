@@ -25,7 +25,7 @@ public class QueensProblem extends Problem
 	{
 		//mi operador recibe una Tile en la que posicionar una reina
 		//Si aun no he creado mi tablero, como se las "destination" (Tiles) que les tengo qeu pasar para crearme los operadores????
-		//PREGUNTAR!!!!!!!
+		//PREGUNTAR!!!!!!!!
 		Operator operator = new PlaceQueenOperator(Destination.UP);
 		this.addOperator(operator);
 		operator = new PlaceQueenOperator(Destination.DOWN);
