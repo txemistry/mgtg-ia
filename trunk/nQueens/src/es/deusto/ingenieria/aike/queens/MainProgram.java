@@ -1,10 +1,7 @@
 package es.deusto.ingenieria.aike.queens;
 
 import es.deusto.ingenieria.aike.formulation.State;
-import es.deusto.ingenieria.aike.search.blind.BreadthFSwithLog;
 import es.deusto.ingenieria.aike.search.blind.DepthFSwithLog;
-import es.deusto.ingenieria.aike.search.heuristic.BestFS;
-import es.deusto.ingenieria.aike.search.heuristic.BestFSwithLog;
 import es.deusto.ingenieria.ingenieria.search.SearchMethod;
 
 public class MainProgram {
