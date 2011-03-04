@@ -72,7 +72,7 @@ public class Tile extends Point
 
 	public String toString() 
 	{
-		return "" + this.reina;
+		return this.getRow() + "," + this.getColumn();
 	}
 
 	public Object clone() 
