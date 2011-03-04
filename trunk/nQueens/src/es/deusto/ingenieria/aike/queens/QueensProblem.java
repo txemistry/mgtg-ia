@@ -35,12 +35,11 @@ public class QueensProblem extends Problem
 		
 		for(int i = 0; i < QueensProblem.num; i++)
 		{
-			for(int j = 0; j < QueensProblem.num; j++)
-			{
-				Operator operator = new PlaceQueenOperator(new Tile(i, j, false));
+		
+				Operator operator = new PlaceQueenOperator(i);
 				this.addOperator(operator);
-				System.out.println("acabo de crear el operador para la casilla " + i + "," + j);
-			}
+				System.out.println("acabo de crear el operador para la columna " + i);
+			
 		}
 		
 	}
