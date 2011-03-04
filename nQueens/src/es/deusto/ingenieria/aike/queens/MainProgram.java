@@ -30,6 +30,8 @@ public class MainProgram {
 			//problem.solve(search);
 			//search = new BestFSwithLog(new ManhattanDistance());
 			//problem.solve(search);
+			
+			
 			SearchMethod search = DepthFSwithLog.getInstance();
 			problem.solve(search);			
 		} catch (Exception ex) {
