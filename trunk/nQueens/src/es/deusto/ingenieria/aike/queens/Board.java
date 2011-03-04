@@ -90,11 +90,16 @@ public class Board
 		{
 			for(int j=0; j<this.tiles[0].length; j++) 
 			{
-				str += this.tiles[i][j] + ","; //llamar‡ internamente al toString de Tile
+				str += this.tiles[i][j] + "///"; //llamar‡ internamente al toString de Tile
 			}
+			if(i != this.tiles.length-1)
+				str += "\n";
 		}
-		
-		return str + ")";
+		str += ")";
+		str += "\n\n";
+		str += this.placedQueens.toString();
+		str += "\n\n";
+		return str ;
 	}
 	
 	public Object clone() 

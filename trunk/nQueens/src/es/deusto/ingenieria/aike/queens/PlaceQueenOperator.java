@@ -9,7 +9,8 @@ public class PlaceQueenOperator extends Operator
 	
 	private Tile destination;
 	
-	public PlaceQueenOperator(Tile destination) {
+	public PlaceQueenOperator(Tile destination) 
+	{
 		super("Place Queen into tile '" + destination.toString() + "'");
 		this.destination = destination;
 	}
@@ -20,44 +21,16 @@ public class PlaceQueenOperator extends Operator
 		//Cuando no se ataque con otras ya puestas y antes de todo siempre y cuando no se hallan colocado ya todas las reinas
 		Board board = (Board)state.getInformation();		
 	
-		
-		if(board.getTiles().length == board.getPlacedQueens().size())
-		{
-			//Se han colocado todas las reinas posibles por lo que habremos llegado al estado final
-			return false;
-		}
-		else
-		{
-			//todavia se pueden poner mas reinas
-			//hay que comprobar que el "destination" es una columna que aun no tiene reina
-			int columnDestination = destination.getColumn();
-			//comprobar en el array de placedQueens que no existe ninguna en ella con esa columna
-			boolean enc=false;
-			int i = 0;
-			while(i < board.getPlacedQueens().size() && !enc)
-			{
-				if(board.getPlacedQueens().get(i).getColumn() == columnDestination)
-				{
-					enc = true;
-				}
-				i++;
-			}
-			
-			if (enc == true)
-			{
-				//ya existe una reina en esa columna y por lo tanto el operador no puede ser aplicado
-				return false;
-			}
-			else
-			{
 				//la columna esta vacia por lo que habra que comprobar que el destination que me han dado
 				//no cree conflictos con otras reinas ya posicionadas
 				
 				//primero comprobamos que la fila que nos han pasado en el destination, no entra en conflicto con las filas de placedQueens
 				//enc = false;   enc ya era falso
-				i = 0;
+				int i = 0;
+				boolean enc = false;
 				while(i < board.getPlacedQueens().size() && !enc)
 				{
+
 					if(board.getPlacedQueens().get(i).getRow() == destination.getRow())
 					{
 						//la poscion que me han pasado entra en conflicto con otra reina
@@ -102,19 +75,42 @@ public class PlaceQueenOperator extends Operator
 						return true;
 					}
 				}
-			}
-		}
+			
+	
 	}
 
 	protected State effect(State state) 
 	{
 		//cual es el resultado de aplicar ese operador?
-		//la creacion de uun nuevo estado con una reina mas en la lista de reinas posicionadas
-		//y una nueva distribucion en el tablero
+		//una nueva distribucion en el tablero
+		//y un cambio de la reina si ya estaba posicionada en esa columna
 		
 		Board board = (Board)state.getInformation(); //cogemos la situacion actual del tablero
 		Board newBoard = (Board)board.clone(); //lo clonamos (situacion del tablero + lista de reinas posicionadas)
-				
+		
+		//busco una tile en la columna que me han pasado si hubiese alguna con una reina ya colocada
+		
+		Tile tileConReina = null;
+		boolean enc = false;
+		int i = 0;
+		
+		while (i < board.getTiles()[destination.getColumn()].length && !enc)
+		{
+			if(board.getTiles()[i][destination.getColumn()].isReina())
+			{
+				tileConReina = board.getTiles()[i][destination.getColumn()];
+				enc = true;
+			}
+			i++;
+		}
+		
+		if (enc == true)
+		{
+			//le quito la reina a la que la tenia y se la pongo en la nueva destination
+			newBoard.getTile(tileConReina.getRow(), tileConReina.getColumn()).setReina(false);
+			//tendria que borrar diche tile de la lista de placedqueens
+			newBoard.getPlacedQueens().remove(tileConReina);
+		}
 		newBoard.getTile(destination.getRow(), destination.getColumn()).setReina(true); //modifico la propiedad de reina del Tile que me dan en destination
 		newBoard.getPlacedQueens().add(new Tile(destination.getRow(), destination.getColumn(), true)); //a–ado esa tile a la lista de reinas posicionadas
 
