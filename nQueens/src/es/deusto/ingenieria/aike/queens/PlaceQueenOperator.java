@@ -1,7 +1,6 @@
 package es.deusto.ingenieria.aike.queens;
 
 import java.util.ArrayList;
-import java.util.Currency;
 
 import es.deusto.ingenieria.aike.formulation.Operator;
 import es.deusto.ingenieria.aike.formulation.State;
