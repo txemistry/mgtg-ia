@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project basedir="." name="8puzzle" default="build">
+	<property environment="env"/>
+	<property name="source.dir" value="src"/>
+    <property name="build.dir" value="bin"/>
+	<property name="lib.dir" value="lib"/>
+
+	<path id="classpath">
+		<pathelement path="${build.dir}"/>
+		<fileset dir="${lib.dir}">
+			<include name="*.jar"/>
+		</fileset>		
+	</path>
+	
+	<target name="clean">
+		<delete dir="${build.dir}"/>
+	</target>
+	
+	<target name="prepare">
+		<mkdir dir="${build.dir}"/>
+	</target>
+        
+	<target name="build" depends="prepare">
+		<javac srcdir="${source.dir}" destdir="${build.dir}" deprecation="true" fork="true">
+        	<classpath>
+        		<path refid="classpath"/> 
+       		</classpath>
+        </javac>
+    </target>
+	
+	<target name="execute" depends="build">
+		<java classname="es.deusto.eside.aike.puzzle.ProgramaPrincipal" fork="true">
+        	<classpath>
+        		<path refid="classpath"/> 
+       		</classpath>
+        </java>
+    </target>
+    	
+</project>
