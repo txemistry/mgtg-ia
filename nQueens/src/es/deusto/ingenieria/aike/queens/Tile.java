@@ -7,7 +7,7 @@ public class Tile extends Point
 
 	private static final long serialVersionUID = 1L;
 	private boolean reina;
-	//private int x;  ESTOS DOS ATRIBUTOS LOS HEREDA DE LA CLASE Point
+	//private int x;  they are inherited from point
 	//private int y;
 	
 	
@@ -48,7 +48,7 @@ public class Tile extends Point
 		this.reina = reina;
 	}
 
-	public Point getPosition() //me devuelve una "Tile" que es un Point que tiene las propiedades x e y
+	public Point getPosition() //it return a Tile...
 	{
 		return this;
 	}
@@ -56,7 +56,6 @@ public class Tile extends Point
 	
 	public boolean equals(Object obj) 
 	{
-		//Cuando son dos Tile iguales? cuando coinciden sus coordenadas y si poseen reina o no
 		if ( obj != null && obj instanceof Tile) 
 		{				
 			Tile otherTile = (Tile)obj; 

@@ -25,20 +25,14 @@ public class QueensProblem extends Problem
 
 	public void createOperators() 
 	{
-		//mi operador recibe una Tile en la que posicionar una reina
-		//Si aun no he creado mi tablero, como se las "destination" (Tiles) que les tengo qeu pasar para crearme los operadores????
-		//PREGUNTAR!!!!!!!!   
-		//MODIFICACION: en vez de pasarle a isApplicable una tile, le paso un numero de columna  
-		//me hago tantos operadores como casillas tiene el tablero???
+
 		
-		System.out.println("estoy en createOperadores y num vale: " + QueensProblem.num);
 		
 		for(int i = 0; i < QueensProblem.num; i++)
 		{
 		
 				Operator operator = new PlaceQueenOperator(i);
 				this.addOperator(operator);
-				System.out.println("acabo de crear el operador para la columna " + i);
 			
 		}
 		
@@ -57,13 +51,13 @@ public class QueensProblem extends Problem
 			searchMethod.solutionPath(finalNode, operators);
 			searchMethod.createSolutionLog(operators);
 			
-			System.out.println("la solucion final es:");
+			System.out.println("the final solution is: ");
 			
 			ArrayList <Tile> placedQ = ((Board)finalNode.getState().getInformation()).getPlacedQueens();
 			
 			for(Tile queen:placedQ)
 			{
-				System.out.println("Reina colocada en la casilla: " + queen.getRow() + "," + queen.getColumn());
+				System.out.println("Queen placed in Tile: " + queen.getRow() + "," + queen.getColumn());
 			}
 			
 		} else {
@@ -73,73 +67,16 @@ public class QueensProblem extends Problem
 	
 	public boolean isFinalState(State state)
 	{
-		//Cuando un estado es final??? 
-		//Cuando tiene colocadas todas las reinas opsibles
-		//y ninguna de ellas se ataca con otras
-		//iremos comprobando una por una de las que estan en la lista de placedQueens
+
+		
+		//When is a state final?
+		//when it has placed all the queens 
 		
 		
 		
 		
 		Board board = (Board)state.getInformation();
 		ArrayList<Tile>placedQ = board.getPlacedQueens();
-		/*boolean conflicto = false;
-		
-	
-		
-		for(Tile queen:placedQ)
-		{
-			//comprobamos que en su misma fila no halla otra reina
-			int i = 0;
-			boolean enc = false;
-			while(i < placedQ.size() && !enc)
-			{
-
-				if(placedQ.get(i).getRow() == queen.getRow())
-				{
-					//la poscion que me han pasado entra en conflicto con otra reina
-					//devolverŽ false
-					enc = true;
-				}
-				i++;
-			}
-			
-			if(enc == true)
-			{
-				//ha encontrado conflicto con otra fila
-				conflicto = true;
-			}
-			else
-			{
-				//hay que comprobar que no existan conflictos con las diagonales
-				//enc ya era false
-				i = 0;
-				while(i < placedQ.size() && !enc)
-				{
-					int absFila;
-					int absColumna;
-					
-					absFila = Math.abs(queen.getRow() - placedQ.get(i).getRow());
-					absColumna = Math.abs(queen.getColumn() - placedQ.get(i).getColumn());
-					if(absFila == absColumna)
-					{
-						//Son diagonales y por lo tanto...
-						enc = true;
-					}
-					//Si son distintas no son diagonales
-					i++;
-				}
-				if(enc == true)
-				{
-					conflicto =  true;
-				}
-				else
-				{
-					//el destination que me han pasdo no esntra en conflicto con ninguna reina posicionada anteriormente
-					conflicto = false;
-				}
-			}
-		}*/
 		
 		if(placedQ.size() == QueensProblem.num )
 			return true;

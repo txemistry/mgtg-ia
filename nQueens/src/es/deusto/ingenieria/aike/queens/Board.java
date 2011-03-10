@@ -58,8 +58,9 @@ public class Board
 		
 	public void placeQueen(int row, int column)
 	{
-		//cambiar la propiedad de reina? de la tile correspondiente a true
-		//a–adir esa reina a la lista de reinas colocadas
+		
+		//change the "reina" property of the Tile (row, column) to true.
+		//Furthermore, that queen hast to be added to the placedQueens list
 		
 		this.tiles[row][column].setReina(true);
 		this.placedQueens.add(this.tiles[row][column]);
@@ -68,12 +69,13 @@ public class Board
 	
 	
 	public boolean equals(Object obj) 
-	//Cuando son iguales dos tableros? cuando tienen las mismas reinas colocadas
-	//es decir, cuando su array de placequeens es igual
+	//When are two boards equals?.. when they have the same placed queens 
+	//it means, when its placedQueens list are equal
+	
 	{
 		if (obj != null	&& obj instanceof Board  ) 
 		{
-			if(((Board)obj).placedQueens.equals(this.placedQueens))//lamara internamente al equals de Tile
+			if(((Board)obj).placedQueens.equals(this.placedQueens))//it will invoke equals method of Tile class
 			{
 				return true;
 			}
@@ -90,7 +92,7 @@ public class Board
 		{
 			for(int j=0; j<this.tiles[0].length; j++) 
 			{
-				str += this.tiles[i][j] + "///"; //llamar‡ internamente al toString de Tile
+				str += this.tiles[i][j] + "///"; //it will invoke toString method of Tile class
 			}
 			if(i != this.tiles.length-1)
 				str += "\n";
@@ -106,7 +108,7 @@ public class Board
 	{
 		Tile[][] newBoard = new Tile[this.tiles.length][this.tiles[0].length];
 		@SuppressWarnings("unchecked")
-		ArrayList<Tile> newPlacedQueens = (ArrayList<Tile>) this.placedQueens.clone(); //llamar‡ internamente al clone de Tile
+		ArrayList<Tile> newPlacedQueens = (ArrayList<Tile>) this.placedQueens.clone(); //it will invoke clone method of Tile class
 
 		for(int i=0; i<this.tiles.length; i++) 
 		{

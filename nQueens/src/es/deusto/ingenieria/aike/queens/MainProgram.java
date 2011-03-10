@@ -11,25 +11,10 @@ public class MainProgram {
 			QueensProblem.num = 4;
 			QueensProblem problem = new QueensProblem();
 			
-			System.out.println("se han creado " + problem.getOperators().size() + " operadores");
+			System.out.println(problem.getOperators().size() + " operators have been created");
 			
 			State initialState = new State(new Board(4));
 			problem.addInitialState(initialState);	
-			
-		/*	State state2;
-			State state3;
-			state2 = problem.getOperators().get(0).apply(initialState);
-			System.out.println(((Board)state2.getInformation()).toString());
-			state3 = problem.getOperators().get(1).apply(state2);
-			System.out.println("aqui no llego");
-			System.out.println(((Board)state3.getInformation()).toString());*/
-
-			
-			
-			//SearchMethod search = new BestFS(new ManhattanDistance());
-			//problem.solve(search);
-			//search = new BestFSwithLog(new ManhattanDistance());
-			//problem.solve(search);
 			
 			
 			SearchMethod search = DepthFSwithLog.getInstance();

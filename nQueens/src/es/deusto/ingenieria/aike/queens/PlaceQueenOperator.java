@@ -19,14 +19,15 @@ public class PlaceQueenOperator extends Operator
 	
 	protected boolean isApplicable(State state) 
 	{
-		//Cuando puedo posicionar una reina en una columna???
-		//Cuando existe en el estado que me han pasado, al menos una casilla dentro de la columna que me dan
-		//en la que puedo posicionar la reina sin generar conflicto con las que ya habia puestas
+		//when can i placed a queen in a column? 
+		//when in the state passed as an argument, there is at least one tile inside that column where
+		//I can place a queen without faced any conflicts between the other placed queens
+		
 		Board board = (Board)state.getInformation();		
 		boolean applicable = false;
 		
 		
-		//Cojo la columna que me han dado
+		//I Obtain the column where i want to place a queen
 		ArrayList<Tile> posibleDestinations = new ArrayList<Tile>();
 		
 		for(int i = 0; i < board.getTiles()[0].length; i++)
@@ -34,27 +35,24 @@ public class PlaceQueenOperator extends Operator
 			Tile tile = board.getTile(i, column);
 			if(tile.isReina() == false)
 			{
-				//la metemos en la lista de posibles destinos
+				//we add that tile to the posibleDestinations list
 				posibleDestinations.add(tile);
 			}
 			else
 			{
-				//seria mover una reina a una posicion en la que ya esta y no tiene sentido...
+				//we will be in the situation of moving a placed queen to the same Tile and it does not make any sense
 			}
 		}
 		
 
 		
-		//Ahora que ya tengo las celdas posibles y accesibles de forma mas facil, tengo qeu comprobar una por una
-		//exepto en la que esta la reina, si estuviese, si crea algun conflicto con las reinas que estan en la 
-		//lista de placedQueens
+		//now i have to chek if the possible destinations, create some conflicts with the placed queens
 		int i = 0;
 		while(i < posibleDestinations.size() && !applicable)
 		{
 			Tile currentTile = posibleDestinations.get(i);
-			
-			//primero comprobamos que la fila de la posible celda actual no entra en conflicto con las filas de placedQueens
-			//enc = false;   enc ya era falso
+		
+			//fisrt, we chek if there is some conflict inside the same row
 			int j = 0;
 			boolean enc = false;
 			while(j < board.getPlacedQueens().size() && !enc)
@@ -62,7 +60,7 @@ public class PlaceQueenOperator extends Operator
 
 				if(board.getPlacedQueens().get(j).getRow() == currentTile.getRow())
 				{
-					//la poscion de la tile actual, entra en conflicto con otra reina
+					//there's a conflict
 					enc = true;
 					
 				}
@@ -71,14 +69,13 @@ public class PlaceQueenOperator extends Operator
 			
 			if(enc == true)
 			{
-				//ha encontrado conflicto con otra fila asi que pruebo otra celda
+				//I have found a conflict with other row, sow i have to continue with the next Tile
 				i++;
 				continue;
 			}
 			else
 			{
-				//hay que comprobar que no existan conflictos con las diagonales
-				//enc ya era false
+				//now i check for conflicts in the diagonals
 				j = 0;
 				while(j < board.getPlacedQueens().size() && !enc)
 				{
@@ -89,22 +86,21 @@ public class PlaceQueenOperator extends Operator
 					absColumna = Math.abs(currentTile.getColumn() - board.getPlacedQueens().get(j).getColumn());
 					if(absFila == absColumna)
 					{
-						//Son diagonales y por lo tanto...
+						//there's a conflict...
 						enc = true;
 					}
-					//Si son distintas no son diagonales
+					//if they are distinct, there's no problem
 					j++;
 				}
 				if(enc == true)
 				{
-					//conflicto con diagonales--- a probar otra celda
+					//I have found a problem...
 					i++;
 					continue;
 				}
 				else
 				{
-					//el destination que me han pasdo no esntra en conflicto con ninguna reina posicionada anteriormente 
-					//por lo que puede ser valido
+					//There's no conflict with the Tile i'm checking
 					applicable = true;
 					
 				}
@@ -116,16 +112,15 @@ public class PlaceQueenOperator extends Operator
 
 	protected State effect(State state) 
 	{
-		//cual es el resultado de aplicar ese operador?
-		//una nueva distribucion en el tablero
-		//y un cambio de la reina si ya estaba posicionada en esa columna
-		//pero a que fila??? a la primera que encuentre que no le crea un conflicto
+		//which is the result of applying that operator?
+		//a new distribution of the board,
+		//and a change of the position of the queen, if there just was a previous queen in that column
+		//but,... what row do I choose?, the fisrt that does not make any problem with the others
 		
-		Board board = (Board)state.getInformation(); //cogemos la situacion actual del tablero
-		Board newBoard = (Board)board.clone(); //lo clonamos (situacion del tablero + lista de reinas posicionadas)
+		Board board = (Board)state.getInformation(); //actual board situation
+		Board newBoard = (Board)board.clone(); //we clone it
 		
-		//busco una tile en la columna que me han pasado si hubiese alguna con una reina ya colocada
-		
+		//I check if there is a queen placed in the column where I have to place the new queen
 		
 		Tile tileConReina = null;
 		boolean enc = false;
@@ -143,21 +138,20 @@ public class PlaceQueenOperator extends Operator
 		}	
 
 		
-		//Ahora me tengo que recorrer la columna y quedarme con la primera celda
-		//que encuentre que no sea en la que esta la reina, si es que hay y que no me cree conflictos
-		//primero busco la primera celda optima
+
+		
+		//now I have to find the best first Tile to place it
 		
 		boolean tileChosen = false;
 		i = 0;
 		while(i < board.getTiles()[0].length && !tileChosen)
 		{
 			Tile currentTile = board.getTile(i, column);
-			//comprobamos que esa tile no tenga una reina
+			//We check if that Tile is a Queen
 			
 			if(!currentTile.isReina())
 			{
-				//primero comprobamos que la fila de la posible celda actual no entra en conflicto con las filas de placedQueens
-				//enc = false;   enc ya era falso
+				//cheking rows problems
 				int j = 0;
 				boolean enc2 = false;
 				while(j < board.getPlacedQueens().size() && !enc2)
@@ -165,7 +159,7 @@ public class PlaceQueenOperator extends Operator
 
 					if(board.getPlacedQueens().get(j).getRow() == currentTile.getRow())
 					{
-						//la poscion de la tile actual, entra en conflicto con otra reina
+						//there's a problem
 						enc2 = true;
 						
 					}
@@ -174,14 +168,13 @@ public class PlaceQueenOperator extends Operator
 				
 				if(enc2 == true)
 				{
-					//se que hay un conflicto con la fila, no me detengo a mirar las diagonales
+					//there's a problem
 					i++;
 					continue;
 				}
 				else
 				{
-					//hay que comprobar que no existan conflictos con las diagonales
-					//enc ya era false
+					//we check diagonal problems
 					j = 0;
 					while(j < board.getPlacedQueens().size() && !enc2)
 					{
@@ -192,35 +185,36 @@ public class PlaceQueenOperator extends Operator
 						absColumna = Math.abs(currentTile.getColumn() - board.getPlacedQueens().get(j).getColumn());
 						if(absFila == absColumna)
 						{
-							//Son diagonales y por lo tanto...
+							//there's a problem
 							enc2 = true;
 						}
-						//Si son distintas no son diagonales
+						//if they are distinct there's no problem
 						j++;
 					}
 					if(enc2 == true)
 					{
 						i++;
-						continue; //ha habido conflicto con las diagonales, por lo que la current no es una buena opcion
+						continue; //There has been a problem
 					}
 					else
 					{
-						//la celda current no tiene conflictos con niguna y ademas no es una reina por lo que hago lo que tenga que hacer
+						//Current Tile is not a Queen and there's no problem with other placedQueens, so is a suitable Tile
+						//to place a new one
 						tileChosen = true;
 						
 
-						if (enc == true) //habia una reina posicionada en la columna por lo que tengo que eliminarla y posicionalr en 
-							//la tileChosen
+						if (enc == true) //there was an old place queen in that column, so I have to update
+							//the placedQueens list
 						{
-							//le quito la reina a la que la tenia y se la pongo en la nueva 
+							//I change the tile
 							newBoard.getTile(tileConReina.getRow(), tileConReina.getColumn()).setReina(false);
-							//tendria que borrar diche tile de la lista de placedqueens
+							//I remove that tile from the list
 							newBoard.getPlacedQueens().remove(tileConReina);
 						}
 						
-						//tenga o no tenga reina esto lo tengo que hacer
-						newBoard.getTile(i, column).setReina(true); //modifico la propiedad de reina del Tile que me dan en destination
-						newBoard.getPlacedQueens().add(new Tile(i, column, true)); //a–ado esa tile a la lista de reinas posicionadas
+						//anyway, queen or no queen...
+						newBoard.getTile(i, column).setReina(true); //I change the suitable Tile
+						newBoard.getPlacedQueens().add(new Tile(i, column, true)); //I add that tile to the placedQueen list
 					}
 				}
 			}
