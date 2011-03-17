@@ -5,7 +5,7 @@ import java.awt.Point;
 public class Tile extends Point 
 {
 	private static final long serialVersionUID = 1L;
-	private String type; //sera o, x � f
+	private String type; //sera O, X ó F
 	private boolean up_wall;
 	private boolean down_wall;
 	private boolean right_wall;

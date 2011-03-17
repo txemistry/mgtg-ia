@@ -10,7 +10,7 @@ public class MainProgram {
 	
 	public static void main(String[] args) {
 		try {
-			PuzzleProblem problem = new PuzzleProblem();
+			MazeProblem problem = new MazeProblem();
 			State initialState = new State(new Board(7,1,2,3,4,5,6,8,0));
 			problem.addInitialState(initialState);			
 			SearchMethod search = new BestFS(new ManhattanDistance());
