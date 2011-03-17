@@ -1,11 +1,11 @@
-package es.deusto.ingenieria.aike.puzzle;
+package es.deusto.ingenieria.aike.maze;
 
 import java.awt.Point;
 
 public class Tile extends Point 
 {
 	private static final long serialVersionUID = 1L;
-	private String type; //sera o, x — f
+	private String type; //sera o, x ï¿½ f
 	private boolean up_wall;
 	private boolean down_wall;
 	private boolean right_wall;

@@ -1,4 +1,4 @@
-package es.deusto.ingenieria.aike.puzzle;
+package es.deusto.ingenieria.aike.maze;
 
 
 public class Board 

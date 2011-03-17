@@ -1,4 +1,4 @@
-package es.deusto.ingenieria.aike.puzzle;
+package es.deusto.ingenieria.aike.maze;
 
 import es.deusto.ingenieria.aike.formulation.Operator;
 import es.deusto.ingenieria.aike.formulation.State;
