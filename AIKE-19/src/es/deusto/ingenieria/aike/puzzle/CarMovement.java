@@ -297,23 +297,42 @@ public class CarMovement extends Operator {
 
 	protected State effect(State state) //ME HE QUEDADO AQUI...
 	{
-		Board board = (Board)state.getInformation();
-		Board newBoard = (Board)board.clone();
-		Tile blank = newBoard.getBlank();		
+		Board board = (Board)state.getInformation(); //cogemos la situacion actual
+		Board newBoard = (Board)board.clone();	//clonamos la situacion actual en un nuevo board
 		
-		switch (this.detination) {
+		Tile currentTile= board.getCar();
+		
+		switch (this.detination) 
+		{
 			case UP:
-				newBoard.moveTile(blank, blank.y-1, blank.x);
+			{
+				//quiero mover el coche a la tile que esta encima mio. por eso primero la cogemos
+				Tile destinationTile = newBoard.getTile(currentTile.getRow()-1, currentTile.getColumn());
+				newBoard.moveCar(destinationTile);
 				break;
+			}
 			case DOWN:
-				newBoard.moveTile(blank, blank.y+1, blank.x);
+			{
+				//quiero mover el coche a la tile que esta debajo mio. por eso primero la cogemos
+				Tile destinationTile = newBoard.getTile(currentTile.getRow()+1, currentTile.getColumn());
+				newBoard.moveCar(destinationTile);
 				break;
+			}
 			case RIGHT:
-				newBoard.moveTile(blank, blank.y, blank.x+1);
+			{
+				//quiero mover el coche a la tile que esta a mi derecha. por eso primero la cogemos
+				Tile destinationTile = newBoard.getTile(currentTile.getRow(), currentTile.getColumn()+1);
+				newBoard.moveCar(destinationTile);
 				break;
+			}
 			case LEFT:
-				newBoard.moveTile(blank, blank.y, blank.x-1);
+			{
+				//quiero mover el coche a la tile que esta a mi izquierda. por eso primero la cogemos
+				Tile destinationTile = newBoard.getTile(currentTile.getRow(), currentTile.getColumn()-1);
+				newBoard.moveCar(destinationTile);
 				break;
+			}
+
 		}
 
 		return new State(newBoard);
