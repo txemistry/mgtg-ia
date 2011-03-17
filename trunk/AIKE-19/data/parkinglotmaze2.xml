@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<aike:maze xmlns:aike="http://alud2.ingenieria.deusto.es" rows="3" columns="3">
+	<aike:car row="4" column="2"/>
+	<aike:flag row="2" column="2" left-wall="yes" top-wall="no" right-wall="yes" bottom-wall="yes"/>
+	<aike:crosses>
+		<aike:cross row="1" column="1"/>
+		<aike:cross row="1" column="2"/>
+		<aike:cross row="1" column="3"/>
+		<aike:cross row="2" column="1"/>
+		<aike:cross row="3" column="2"/>
+		<aike:cross row="3" column="3"/>
+	</aike:crosses>
+</aike:maze>

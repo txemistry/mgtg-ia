@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<aike:maze xmlns:aike="http://alud2.ingenieria.deusto.es" rows="15" columns="15">
+	<aike:car row="1" column="16"/>
+	<aike:flag row="1" column="1" left-wall="yes" top-wall="yes" right-wall="no" bottom-wall="yes"/>
+</aike:maze>
