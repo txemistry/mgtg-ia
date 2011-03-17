@@ -23,7 +23,8 @@ public class CarMovement extends Operator {
 	
 	protected boolean isApplicable(State state) //mequeda mirar que no valla para atras y que no este fuera
 	{
-		Board board = (Board)state.getInformation();		
+		Board board = (Board)state.getInformation();	
+		Tile currentTile= board.getCar();
 	
 		switch (this.detination) 
 		{
@@ -35,11 +36,12 @@ public class CarMovement extends Operator {
 				//si es una X tengo que mirar de donde venia 
 				
 				
-				Tile currentTile= board.getCar();
 				
-				if(board.getCar().getRow() > 0)
+				
+				if((currentTile.getRow() > 0) && (currentTile.getColumn() >= 0) && (currentTile.getColumn() < board.getTiles()[0].length)) 
 				{
 				
+					//la segunda y tercera condicion es para no hacer el primer movimiento fuera del tablero
 					//significa que aunque me mueva una posicion hacia arriba, no me salgo del tablero
 					//ahora compruebo que la casilla de encima no tiene una pared en su parte baja
 					
@@ -103,9 +105,7 @@ public class CarMovement extends Operator {
 				//si es una X tengo que mirar de donde venia 
 				
 				
-				Tile currentTile= board.getCar();
-				
-				if(board.getCar().getRow() < board.getTiles().length-1)
+				if((currentTile.getRow() < board.getTiles().length-1) && (currentTile.getColumn() >= 0) && (currentTile.getColumn() < board.getTiles()[0].length))
 				{
 				
 					//significa que aunque me mueva una posicion hacia abajo, no me salgo del tablero
@@ -168,11 +168,9 @@ public class CarMovement extends Operator {
 				//cuando la casilla a la derecha de la que estoy no se sale de los bordes
 				//y dependiendo de si la casilla en la que estoy es una X � una O 
 				//si es una X tengo que mirar de donde venia 
+
 				
-				
-				Tile currentTile= board.getCar();
-				
-				if(board.getCar().getColumn() < board.getTiles()[0].length-1)
+				if((currentTile.getColumn() < board.getTiles()[0].length-1) && (currentTile.getRow() >= 0) && (currentTile.getRow() < board.getTiles().length))
 				{
 				
 					//significa que aunque me mueva una posicion hacia la derecha, no me salgo del tablero
@@ -234,11 +232,9 @@ public class CarMovement extends Operator {
 				//cuando la casilla a la izuierda de la que estoy no se sale de los bordes
 				//y dependiendo de si la casilla en la que estoy es una X � una O 
 				//si es una X tengo que mirar de donde venia 
+
 				
-				
-				Tile currentTile= board.getCar();
-				
-				if(board.getCar().getColumn() > 0)
+				if((currentTile.getColumn() > 0) && (currentTile.getRow() >= 0) && (currentTile.getRow() < board.getTiles().length))
 				{
 				
 					//significa que aunque me mueva una posicion hacia la izquierda, no me salgo del tablero
