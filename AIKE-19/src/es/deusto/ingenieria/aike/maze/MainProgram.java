@@ -1,7 +1,10 @@
 package es.deusto.ingenieria.aike.maze;
 
 import es.deusto.ingenieria.aike.formulation.State;
+import es.deusto.ingenieria.aike.search.blind.BreadthFSwithLog;
+import es.deusto.ingenieria.aike.search.blind.DepthFSwithLog;
 import es.deusto.ingenieria.aike.xml.InformationXMLReader;
+import es.deusto.ingenieria.ingenieria.search.SearchMethod;
 
 public class MainProgram {
 	
@@ -14,8 +17,15 @@ public class MainProgram {
 			State initialState = new State((Board)entornoSAXParser.getInformation());
 			System.out.println(initialState.toString());
 			
+			System.out.println(problem.getOperators().size() + " operators have been created");
+			problem.addInitialState(initialState);	
 			
-			 State state2;
+			
+			SearchMethod search = DepthFSwithLog.getInstance();
+			problem.solve(search);
+			
+			
+			 /*State state2;
 			 State state3;
 			 
              state2 = problem.getOperators().get(0).apply(initialState);
@@ -28,7 +38,7 @@ public class MainProgram {
              if(state3 == null)
             	 System.out.println("no es posible hacer ese movimiento");
              else
-            	 System.out.println(((Board)state3.getInformation()).toString());
+            	 System.out.println(((Board)state3.getInformation()).toString());*/
 					
 					
 		} catch (Exception ex) 

@@ -26,8 +26,6 @@ public class CarMovement extends Operator {
 		Board board = (Board)state.getInformation();	
 		Tile currentTile= board.getCar();
 		
-		System.out.println("estoy en el isApplicable");
-		System.out.println("current Tile es: " + currentTile.toString());
 	
 		switch (this.detination) 
 		{
@@ -51,7 +49,7 @@ public class CarMovement extends Operator {
 					if(board.getTile(currentTile.getRow()-1, currentTile.getColumn()).isDown_wall())
 					{
 						//tiene una pared por lo que no me puedo mover hacia arriba
-						System.out.println("estoy en el isApp y salgo por aqui4");
+						System.out.println("UP false");
 						return false;
 					}
 					else
@@ -59,7 +57,6 @@ public class CarMovement extends Operator {
 						//no tiene una pared, podria moverme, pero tengo que comparar las reglas del juego
 						Tile previousTile = board.getPreviousTile();
 						
-						System.out.println("previous Tile tiene: " + previousTile.toString());
 						
 						if(currentTile.getType().equals("X"))
 						{
@@ -70,14 +67,14 @@ public class CarMovement extends Operator {
 							{
 								//estoy en la misma fila por lo que me he desplazado de columna
 								//y si, me podria mover hacia arriba
-								System.out.println("estoy en el isApp y salgo por aqui5");
+								System.out.println("UP true");
 								 return true;
 							}
 							else
 							{
 								//las columnas son iguales; estoy en la misma columna me he cambiado de fila
 								//y no me podria mover hacia arriba, solo izquierda o derecha
-								System.out.println("estoy en el isApp y salgo por aqui6");
+								System.out.println("UP false");
 								return  false;
 							}
 						}
@@ -89,12 +86,12 @@ public class CarMovement extends Operator {
 							//la segunda parte de la comprobacion es para comprobar que no volvamos para atras
 							if((currentTile.getColumn() == previousTile.getColumn()) && (currentTile.getRow()-1 != previousTile.getRow()))
 							{
-								System.out.println("estoy en el isApp y salgo por aqui1");
+								System.out.println("UP true");
 								return  true;
 							}
 							else
 							{
-								System.out.println("estoy en el isApp y salgo por aqui2");
+								System.out.println("UP false");
 								return false;
 							}
 						}
@@ -103,14 +100,13 @@ public class CarMovement extends Operator {
 				else
 				{
 					//como me mueva para arriba, me salgo del tablero...
-					System.out.println("estoy en el isApp y salgo por aqui3");
+					System.out.println("UP false");
 					return false;
 				}
 			}
 			
 			case DOWN:
 			{
-				System.out.println("esto en el DOWN");
 				//cuando me puedo mover hacia abajo???
 				//cuando la casilla de debajo de la que estoy no se sale de los bordes
 				//y dependiendo de si la casilla en la que estoy es una X � una O 
@@ -126,6 +122,7 @@ public class CarMovement extends Operator {
 					if(board.getTile(currentTile.getRow()+1, currentTile.getColumn()).isUp_wall())
 					{
 						//tiene una pared por lo que no me puedo mover hacia abajo
+						System.out.println("DOWN false");
 						return false;
 					}
 					else
@@ -142,12 +139,14 @@ public class CarMovement extends Operator {
 							{
 								//estoy en la misma fila por lo que me he desplazado de columna
 								//y si, me podria mover hacia arriba
+								System.out.println("DOWN true");
 								 return true;
 							}
 							else
 							{
 								//las columnas son iguales; estoy en la misma columna me he cambiado de fila
 								//y no me podria mover hacia abajo, solo izquierda o derecha
+								System.out.println("DOWN false");
 								return  false;
 							}
 						}
@@ -159,10 +158,12 @@ public class CarMovement extends Operator {
 							//la segunda parte de la comprobacion es para comprobar que no volvamos para atras
 							if((currentTile.getColumn() == previousTile.getColumn()) && (currentTile.getRow()+1 != previousTile.getRow()))
 							{
+								System.out.println("DOWN true");
 								return  true;
 							}
 							else
 							{
+								System.out.println("DOWN false");
 								return false;
 							}
 						}
@@ -171,7 +172,7 @@ public class CarMovement extends Operator {
 				else
 				{
 					//como me mueva para abajo, me salgo del tablero...
-					System.out.println("tengo que salir por aqui...");
+					System.out.println("DOWN false");
 					return false;
 				}
 			}
@@ -192,6 +193,7 @@ public class CarMovement extends Operator {
 					if(board.getTile(currentTile.getRow(), currentTile.getColumn()+1).isLeft_wall())
 					{
 						//tiene una pared por lo que no me puedo mover hacia la derecha
+						System.out.println("RIGHT false");
 						return false;
 					}
 					else
@@ -208,12 +210,14 @@ public class CarMovement extends Operator {
 							{
 								//estoy en la misma fila por lo que me he desplazado de columna
 								//y no me podria mover a la derecha
+								System.out.println("RIGHT false");
 								 return false;
 							}
 							else
 							{
 								//las columnas son iguales; estoy en la misma columna me he cambiado de fila
 								//y n me podria mover hacia la derecha
+								System.out.println("RIGHT true");
 								return  true;
 							}
 						}
@@ -224,10 +228,12 @@ public class CarMovement extends Operator {
 							
 							if((currentTile.getRow() == previousTile.getRow()) && (currentTile.getColumn()+1 != previousTile.getColumn()))
 							{
+								System.out.println("RIGHT true");
 								return  true;
 							}
 							else
 							{
+								System.out.println("RIGHT false");
 								return false;
 							}
 						}
@@ -236,6 +242,7 @@ public class CarMovement extends Operator {
 				else
 				{
 					//como me mueva para la derecha, me salgo del tablero...
+					System.out.println("RIGHT false");
 					return false;
 				}
 			}
@@ -256,6 +263,7 @@ public class CarMovement extends Operator {
 					if(board.getTile(currentTile.getRow(), currentTile.getColumn()-1).isRight_wall())
 					{
 						//tiene una pared por lo que no me puedo mover hacia la izquierda
+						System.out.println("LEFT false");
 						return false;
 					}
 					else
@@ -272,12 +280,14 @@ public class CarMovement extends Operator {
 							{
 								//estoy en la misma fila por lo que me he desplazado de columna
 								//y no me podria mover a la izquierda
+								System.out.println("LEFT false");
 								 return false;
 							}
 							else
 							{
 								//las columnas son iguales; estoy en la misma columna me he cambiado de fila
 								//y n me podria mover hacia la izquierda
+								System.out.println("LEFT true");
 								return  true;
 							}
 						}
@@ -288,10 +298,12 @@ public class CarMovement extends Operator {
 							
 							if((currentTile.getRow() == previousTile.getRow()) && (currentTile.getColumn()-1 != previousTile.getColumn()))
 							{
+								System.out.println("LEFT true");
 								return  true;
 							}
 							else
 							{
+								System.out.println("LEFT false");
 								return false;
 							}
 						}
@@ -300,10 +312,12 @@ public class CarMovement extends Operator {
 				else
 				{
 					//como me mueva para la izquierda, me salgo del tablero...
+					System.out.println("LEFT false");
 					return false;
 				}
 			}
 			default:
+				System.out.println("NO ES NINGUNO DE LOS ANTERIORES");
 				return false;
 		}
 	}
@@ -320,11 +334,8 @@ public class CarMovement extends Operator {
 			case UP:
 			{
 				
-				System.out.println("estoy en el effect de UP");
 				//quiero mover el coche a la tile que esta encima mio. por eso primero la cogemos
 				Tile destinationTile = newBoard.getTile((currentTile.getRow()-1), currentTile.getColumn());
-				System.out.print("la destination tile tiene: ");
-				System.out.println(destinationTile.toString());
 				newBoard.moveCar(destinationTile);
 				break;
 			}
