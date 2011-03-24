@@ -15,10 +15,10 @@ public class BoardXMLReader extends InformationXMLReader
 	private int carColumn;
 	private int flagRow;
 	private int flagColumn;
-	private boolean flagUP = false;
-	private boolean flagDOWN = false;
-	private boolean flagRIGHT = false;
-	private boolean flagLEFT = false;
+	private boolean flagUP ;
+	private boolean flagDOWN;
+	private boolean flagRIGHT;
+	private boolean flagLEFT;
 	private Tile[][] initialTiles;
 	private Tile initialCar;
 
@@ -31,19 +31,21 @@ public class BoardXMLReader extends InformationXMLReader
 	public Object getInformation() 
 	{
 		//esto es para poner el flag en su sitio y crear la posicion inicial del coche
-		this.initialTiles[flagRow][flagColumn] = new Tile("F", flagRow, flagColumn, flagUP, flagDOWN, flagRIGHT, flagLEFT);
+		
+		
+		this.initialTiles[flagRow-1][flagColumn-1] = new Tile("F", flagRow, flagColumn, flagUP, flagDOWN, flagRIGHT, flagLEFT);
 		this.initialCar = new Tile(carRow, carColumn);
 		
 		
 		//estos for son para crear las casillas de circulos
-		for(int i = 1 ; i <= this.rows; i++)
+		for(int i = 0 ; i <= this.rows-1; i++)
 		{
-			for(int j = 1; i<= this.columns; j++)
+			for(int j = 0; j<= this.columns-1; j++)
 			{
 				if(initialTiles[i][j] == null)
 				{
 					//creamos el tile de circulo
-					initialTiles[i][j] = new Tile("O", i, j);
+					initialTiles[i][j]= new Tile("O", i, j);
 				}
 			}
 		}
@@ -56,11 +58,11 @@ public class BoardXMLReader extends InformationXMLReader
 		
 		try 
 		{		
-			
 			if(qName.equals("aike:maze"))
 			{
 				this.rows = Integer.parseInt(attributes.getValue("rows"));
 				this.columns = Integer.parseInt(attributes.getValue("columns"));
+				this.initialTiles = new Tile[rows][columns];
 			}
 			else if(qName.equals("aike:car"))
 				{
@@ -72,21 +74,31 @@ public class BoardXMLReader extends InformationXMLReader
 						this.flagRow = Integer.parseInt(attributes.getValue("row"));
 						this.flagColumn = Integer.parseInt(attributes.getValue("column"));
 						
-						if(attributes.getValue("top-wall").equalsIgnoreCase("yes"))
+						if(attributes.getValue("top-wall").equals("yes"))
 							this.flagUP = true;
-						if(attributes.getValue("bottom-wall").equalsIgnoreCase("yes"))
+						else
+							this.flagUP = false;
+						
+						if(attributes.getValue("bottom-wall").equals("yes"))
 							this.flagDOWN = true;
-						if(attributes.getValue("right-wall").equalsIgnoreCase("yes"))
+						else
+							this.flagDOWN = false;
+						
+						if(attributes.getValue("right-wall").equals("yes"))
 							this.flagRIGHT = true;
-						if(attributes.getValue("left-wall").equalsIgnoreCase("yes"))
+						else
+							this.flagRIGHT = false;
+						
+						if(attributes.getValue("left-wall").equals("yes"))
 							this.flagLEFT = true;
+						else
+							this.flagLEFT = false;
 					}
 					else if (qName.equals("aike:cross"))
 					{
 						int tempRow = Integer.parseInt(attributes.getValue("row"));
 						int tempColumn = Integer.parseInt(attributes.getValue("column"));
-						
-						this.initialTiles[tempRow][tempColumn] = new Tile("X",tempRow, tempColumn);
+						this.initialTiles[tempRow-1][tempColumn-1] = new Tile("X",tempRow, tempColumn);
 					}
 		} 
 		catch (Exception ex) 

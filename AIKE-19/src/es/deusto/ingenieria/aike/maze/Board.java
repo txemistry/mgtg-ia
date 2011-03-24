@@ -13,9 +13,9 @@ public class Board
 	{
 		//nos creamos un tablero con las tiles vacias
 		
-		for(int i = 0; i < rows; i++)
+		for(int i = 0; i < rows-1; i++)
 		{
-			for (int j = 0; j < columns; j++)
+			for (int j = 0; j < columns-1; j++)
 			{
 				tiles[i][j] = new Tile(i,j);
 			}	
@@ -29,8 +29,13 @@ public class Board
 
 	public Board(Tile[][] tiles, Tile car) 
 	{
+		System.out.println("estoy en el constructor del board");
+		this.tiles = new Tile [tiles.length][tiles[0].length];
 		this.tiles = tiles;
 		this.car = car;
+		this.previousTile = car;
+		System.out.println(this.car.toString());
+		System.out.println(this.tiles.length);
 	}
 	
 	
@@ -78,7 +83,13 @@ public class Board
 	
 	public Tile getTile(int row, int column)
 	{
-		return this.tiles[row][column];		
+		System.out.println("voy a coger estas coordenadas: " + row + "," + column + "en la vida real");
+		System.out.println("voy a coger estas coordenadas: " + (row-1) + "," + (column-1) + "en el array");
+		System.out.println("la longitud de tiles es:" + this.tiles.length + "," + this.tiles[0].length);
+		
+		Tile Aux = this.tiles[row-1][column-1];
+		System.out.println(Aux.toString());
+		return this.tiles[row-1][column-1];		
 	}	
 		
 	
@@ -86,6 +97,8 @@ public class Board
 	{
 		//lo que tenemos que hacer es cambiar la casilla del coche y la previous sera la actual del coche antes de cambiarlo
 		
+		System.out.println("paso por aqui en el movecar");
+		System.out.println("tengo que mover el coche a la casilla: " + tile.getRow() + "," + tile.getColumn());
 		this.previousTile = this.car;
 		this.car.setRow(tile.getRow());
 		this.car.setColumn(tile.getColumn());
@@ -104,10 +117,10 @@ public class Board
 			Tile tile2;
 			int i = 0;
 			
-			while(i < tiles.length && equals)
+			while(i < tiles.length-1 && equals)
 			{
 				int j = 0;
-				while(j < tiles[i].length && equals)
+				while(j < tiles[i].length-1 && equals)
 				{
 					tile1 = this.getTile(i,j); // la mia
 					tile2 = ((Board)obj).getTile(i,j);  //la que me pasan
@@ -131,18 +144,18 @@ public class Board
 
 	public String toString() 
 	{
-		String str = "(";		
+		
+		String str = "";		
 		
 		for(int i=0; i<this.tiles.length; i++) 
 		{
 			for(int j=0; j<this.tiles[0].length; j++) 
 			{
-				str += this.tiles[i][j] + "///"; //llamara internamente al toString de Tile
+				str += this.tiles[i][j] + " | "; //llamara internamente al toString de Tile
 			}
 			if(i != this.tiles.length-1)
 				str += "\n";
 		}
-		str += ")";
 		str += "\n\n";
 		str += this.car.toString();
 		str += "\n\n";
@@ -154,9 +167,9 @@ public class Board
 		Tile[][] newBoard = new Tile[this.tiles.length][this.tiles[0].length];
 		Tile newCar = (Tile) this.car.clone(); 
 
-		for(int i=0; i<this.tiles.length; i++) 
+		for(int i=0; i<this.tiles.length-1; i++) 
 		{
-			for(int j=0; j<this.tiles[i].length; j++) 
+			for(int j=0; j<this.tiles[i].length-1; j++) 
 			{
 				newBoard[i][j] = (Tile)this.tiles[i][j].clone();				
 			}

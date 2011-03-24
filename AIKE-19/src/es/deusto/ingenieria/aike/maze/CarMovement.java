@@ -25,6 +25,9 @@ public class CarMovement extends Operator {
 	{
 		Board board = (Board)state.getInformation();	
 		Tile currentTile= board.getCar();
+		
+		System.out.println("estoy en el isApplicable");
+		System.out.println("current Tile es: " + currentTile.toString());
 	
 		switch (this.detination) 
 		{
@@ -48,12 +51,15 @@ public class CarMovement extends Operator {
 					if(board.getTile(currentTile.getRow()-1, currentTile.getColumn()).isDown_wall())
 					{
 						//tiene una pared por lo que no me puedo mover hacia arriba
+						System.out.println("estoy en el isApp y salgo por aqui4");
 						return false;
 					}
 					else
 					{
 						//no tiene una pared, podria moverme, pero tengo que comparar las reglas del juego
 						Tile previousTile = board.getPreviousTile();
+						
+						System.out.println("previous Tile tiene: " + previousTile.toString());
 						
 						if(currentTile.getType().equals("X"))
 						{
@@ -64,12 +70,14 @@ public class CarMovement extends Operator {
 							{
 								//estoy en la misma fila por lo que me he desplazado de columna
 								//y si, me podria mover hacia arriba
+								System.out.println("estoy en el isApp y salgo por aqui5");
 								 return true;
 							}
 							else
 							{
 								//las columnas son iguales; estoy en la misma columna me he cambiado de fila
 								//y no me podria mover hacia arriba, solo izquierda o derecha
+								System.out.println("estoy en el isApp y salgo por aqui6");
 								return  false;
 							}
 						}
@@ -81,10 +89,12 @@ public class CarMovement extends Operator {
 							//la segunda parte de la comprobacion es para comprobar que no volvamos para atras
 							if((currentTile.getColumn() == previousTile.getColumn()) && (currentTile.getRow()-1 != previousTile.getRow()))
 							{
+								System.out.println("estoy en el isApp y salgo por aqui1");
 								return  true;
 							}
 							else
 							{
+								System.out.println("estoy en el isApp y salgo por aqui2");
 								return false;
 							}
 						}
@@ -93,6 +103,7 @@ public class CarMovement extends Operator {
 				else
 				{
 					//como me mueva para arriba, me salgo del tablero...
+					System.out.println("estoy en el isApp y salgo por aqui3");
 					return false;
 				}
 			}
@@ -306,8 +317,14 @@ public class CarMovement extends Operator {
 		{
 			case UP:
 			{
+				System.out.println("estoy en el effect de UP");
 				//quiero mover el coche a la tile que esta encima mio. por eso primero la cogemos
-				Tile destinationTile = newBoard.getTile(currentTile.getRow()-1, currentTile.getColumn());
+				System.out.println("currentTile es: " + currentTile.getRow() + "," + currentTile.getColumn());
+				//Tile aux = newBoard.getTile(4, 3);
+				//System.out.println(aux.toString());
+				Tile destinationTile = newBoard.getTile((currentTile.getRow()-1), currentTile.getColumn());
+				System.out.println("la destination tile tiene:");
+				System.out.println(destinationTile.toString());
 				newBoard.moveCar(destinationTile);
 				break;
 			}
