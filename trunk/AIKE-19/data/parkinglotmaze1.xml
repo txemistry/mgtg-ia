@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <aike:maze xmlns:aike="http://alud2.ingenieria.deusto.es" rows="5" columns="7">
-	<aike:car row="6" column="4"/>
+	<aike:car row="6" column="3"/>
 	<aike:flag row="3" column="4" left-wall="yes" top-wall="yes" right-wall="yes" bottom-wall="no"/>
 	<aike:crosses>
 		<aike:cross row="1" column="2"/>

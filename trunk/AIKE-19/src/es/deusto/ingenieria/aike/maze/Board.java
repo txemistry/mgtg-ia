@@ -8,22 +8,6 @@ public class Board
 	private Tile car;
 	private Tile previousTile;
 	
-
-	public Board(int rows, int columns)
-	{
-		//nos creamos un tablero con las tiles vacias
-		
-		for(int i = 0; i < rows-1; i++)
-		{
-			for (int j = 0; j < columns-1; j++)
-			{
-				tiles[i][j] = new Tile(i,j);
-			}	
-		}
-		
-		this.car = new Tile();
-		this.previousTile = new Tile();
-	}
 	
 
 
@@ -34,8 +18,6 @@ public class Board
 		this.tiles = tiles;
 		this.car = car;
 		this.previousTile = car;
-		System.out.println(this.car.toString());
-		System.out.println(this.tiles.length);
 	}
 	
 	
@@ -83,12 +65,9 @@ public class Board
 	
 	public Tile getTile(int row, int column)
 	{
-		System.out.println("voy a coger estas coordenadas: " + row + "," + column + "en la vida real");
-		System.out.println("voy a coger estas coordenadas: " + (row-1) + "," + (column-1) + "en el array");
-		System.out.println("la longitud de tiles es:" + this.tiles.length + "," + this.tiles[0].length);
-		
-		Tile Aux = this.tiles[row-1][column-1];
-		System.out.println(Aux.toString());
+		//las coordenadas que se me pasan aqui son de la vida real, por lo que en el array ser‡n una unidad menos
+		System.out.println("voy a coger estas coordenadas: " + row + "," + column + " en la vida real");
+		System.out.println("voy a coger estas coordenadas: " + (row-1) + "," + (column-1) + " en el array");
 		return this.tiles[row-1][column-1];		
 	}	
 		
@@ -100,8 +79,7 @@ public class Board
 		System.out.println("paso por aqui en el movecar");
 		System.out.println("tengo que mover el coche a la casilla: " + tile.getRow() + "," + tile.getColumn());
 		this.previousTile = this.car;
-		this.car.setRow(tile.getRow());
-		this.car.setColumn(tile.getColumn());
+		this.car = tile;
 	
 	}
 	
@@ -115,14 +93,14 @@ public class Board
 		{
 			Tile tile1;
 			Tile tile2;
-			int i = 0;
+			int i = 1;
 			
-			while(i < tiles.length-1 && equals)
+			while(i <= tiles.length && equals)
 			{
-				int j = 0;
-				while(j < tiles[i].length-1 && equals)
+				int j = 1;
+				while(j <= tiles[i].length && equals)
 				{
-					tile1 = this.getTile(i,j); // la mia
+					tile1 = this.getTile(i,j); // a getTile se le pasan coordenadas de la vida real por eso empezamos en 1
 					tile2 = ((Board)obj).getTile(i,j);  //la que me pasan
 					equals = tile1.equals(tile2); //se llamara al equals de Tile
 					j++;
@@ -144,7 +122,7 @@ public class Board
 
 	public String toString() 
 	{
-		
+		//me recorro todo el array bidimensional y por eso empezamos en 0
 		String str = "";		
 		
 		for(int i=0; i<this.tiles.length; i++) 
@@ -167,13 +145,16 @@ public class Board
 		Tile[][] newBoard = new Tile[this.tiles.length][this.tiles[0].length];
 		Tile newCar = (Tile) this.car.clone(); 
 
-		for(int i=0; i<this.tiles.length-1; i++) 
+		
+		//como me voy a recorrer el array bidemensional , no necesito qeu la longitud
+		//sea hasta -1 porque empiezo en 0. Asi si la longitud es 5; va de 0 a 4
+		for(int i=0; i<this.tiles.length; i++) 
 		{
-			for(int j=0; j<this.tiles[i].length-1; j++) 
+			for(int j=0; j<this.tiles[i].length; j++) 
 			{
 				newBoard[i][j] = (Tile)this.tiles[i][j].clone();				
 			}
 		}
-		return new Board(newBoard, newCar);
+		return new Board(this.tiles, newCar);
 	}
 }

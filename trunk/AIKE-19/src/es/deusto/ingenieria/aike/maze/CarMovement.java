@@ -40,8 +40,8 @@ public class CarMovement extends Operator {
 				
 				
 				
-				
-				if((currentTile.getRow() > 0) && (currentTile.getColumn() >= 0) && (currentTile.getColumn() < board.getTiles()[0].length)) 
+				//se compara con ! 1 debido a que se sta comparando con la vida real
+				if((currentTile.getRow() > 1) && (currentTile.getColumn() >= 1) && (currentTile.getColumn() <= board.getTiles()[0].length)) 
 				{
 				
 					//la segunda y tercera condicion es para no hacer el primer movimiento fuera del tablero
@@ -110,13 +110,14 @@ public class CarMovement extends Operator {
 			
 			case DOWN:
 			{
+				System.out.println("esto en el DOWN");
 				//cuando me puedo mover hacia abajo???
 				//cuando la casilla de debajo de la que estoy no se sale de los bordes
 				//y dependiendo de si la casilla en la que estoy es una X � una O 
 				//si es una X tengo que mirar de donde venia 
 				
 				
-				if((currentTile.getRow() < board.getTiles().length-1) && (currentTile.getColumn() >= 0) && (currentTile.getColumn() < board.getTiles()[0].length))
+				if((currentTile.getRow() < board.getTiles().length) && (currentTile.getColumn() >= 1) && (currentTile.getColumn() <= board.getTiles()[0].length))
 				{
 				
 					//significa que aunque me mueva una posicion hacia abajo, no me salgo del tablero
@@ -170,6 +171,7 @@ public class CarMovement extends Operator {
 				else
 				{
 					//como me mueva para abajo, me salgo del tablero...
+					System.out.println("tengo que salir por aqui...");
 					return false;
 				}
 			}
@@ -181,7 +183,7 @@ public class CarMovement extends Operator {
 				//si es una X tengo que mirar de donde venia 
 
 				
-				if((currentTile.getColumn() < board.getTiles()[0].length-1) && (currentTile.getRow() >= 0) && (currentTile.getRow() < board.getTiles().length))
+				if((currentTile.getColumn() < board.getTiles()[0].length) && (currentTile.getRow() >= 1) && (currentTile.getRow() <= board.getTiles().length))
 				{
 				
 					//significa que aunque me mueva una posicion hacia la derecha, no me salgo del tablero
@@ -245,7 +247,7 @@ public class CarMovement extends Operator {
 				//si es una X tengo que mirar de donde venia 
 
 				
-				if((currentTile.getColumn() > 0) && (currentTile.getRow() >= 0) && (currentTile.getRow() < board.getTiles().length))
+				if((currentTile.getColumn() > 1) && (currentTile.getRow() >= 1) && (currentTile.getRow() <= board.getTiles().length))
 				{
 				
 					//significa que aunque me mueva una posicion hacia la izquierda, no me salgo del tablero
@@ -317,13 +319,11 @@ public class CarMovement extends Operator {
 		{
 			case UP:
 			{
+				
 				System.out.println("estoy en el effect de UP");
 				//quiero mover el coche a la tile que esta encima mio. por eso primero la cogemos
-				System.out.println("currentTile es: " + currentTile.getRow() + "," + currentTile.getColumn());
-				//Tile aux = newBoard.getTile(4, 3);
-				//System.out.println(aux.toString());
 				Tile destinationTile = newBoard.getTile((currentTile.getRow()-1), currentTile.getColumn());
-				System.out.println("la destination tile tiene:");
+				System.out.print("la destination tile tiene: ");
 				System.out.println(destinationTile.toString());
 				newBoard.moveCar(destinationTile);
 				break;
