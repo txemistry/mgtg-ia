@@ -13,7 +13,6 @@ public class Board
 
 	public Board(Tile[][] tiles, Tile car) 
 	{
-		System.out.println("estoy en el constructor del board");
 		this.tiles = new Tile [tiles.length][tiles[0].length];
 		this.tiles = tiles;
 		this.car = car;
@@ -66,8 +65,6 @@ public class Board
 	public Tile getTile(int row, int column)
 	{
 		//las coordenadas que se me pasan aqui son de la vida real, por lo que en el array ser‡n una unidad menos
-		System.out.println("voy a coger estas coordenadas: " + row + "," + column + " en la vida real");
-		System.out.println("voy a coger estas coordenadas: " + (row-1) + "," + (column-1) + " en el array");
 		return this.tiles[row-1][column-1];		
 	}	
 		
@@ -76,8 +73,7 @@ public class Board
 	{
 		//lo que tenemos que hacer es cambiar la casilla del coche y la previous sera la actual del coche antes de cambiarlo
 		
-		System.out.println("paso por aqui en el movecar");
-		System.out.println("tengo que mover el coche a la casilla: " + tile.getRow() + "," + tile.getColumn());
+		System.out.println("MOVECAR a " + tile.getRow() + "," + tile.getColumn());
 		this.previousTile = this.car;
 		this.car = tile;
 	
@@ -95,10 +91,11 @@ public class Board
 			Tile tile2;
 			int i = 1;
 			
+			
 			while(i <= tiles.length && equals)
 			{
 				int j = 1;
-				while(j <= tiles[i].length && equals)
+				while(j <= tiles[0].length && equals)
 				{
 					tile1 = this.getTile(i,j); // a getTile se le pasan coordenadas de la vida real por eso empezamos en 1
 					tile2 = ((Board)obj).getTile(i,j);  //la que me pasan
@@ -109,8 +106,9 @@ public class Board
 			}
 			
 			if(equals == true) //significa que el tablero es el mismo y ahora hay que comprobar la posicion del coche
+				//actual y la previous 
 			{
-				equals = this.car.equals(((Board)obj).getCar()); //llamara internamente al equals de Tile
+				equals = (this.car.equals(((Board)obj).getCar())) && (this.previousTile.equals(((Board)obj).getPreviousTile())); //llamara internamente al equals de Tile
 				//mirara si sus coordenadas son iguales, si su tipo es igual y sis susparedes son las mismas
 				//de hecho la unica que va a tener paredes es la bandera 
 			}
@@ -125,7 +123,7 @@ public class Board
 		//me recorro todo el array bidimensional y por eso empezamos en 0
 		String str = "";		
 		
-		for(int i=0; i<this.tiles.length; i++) 
+		/*for(int i=0; i<this.tiles.length; i++) 
 		{
 			for(int j=0; j<this.tiles[0].length; j++) 
 			{
@@ -134,9 +132,9 @@ public class Board
 			if(i != this.tiles.length-1)
 				str += "\n";
 		}
-		str += "\n\n";
+		str += "\n\n";*/
 		str += this.car.toString();
-		str += "\n\n";
+		//str += "\n\n";
 		return str ;
 	}
 	

@@ -62,12 +62,23 @@ public class MazeProblem extends Problem
 	{
 		//cuando un estado es final?
 		//cuando la tile en la que esta el coche es de tipo F
+		System.out.println();
+		System.out.println();
+		boolean end = false;
 		
 		Board board = (Board)state.getInformation();
 		Tile currentTile= board.getCar();
 		
+		System.out.print("estoy en isFinal " + currentTile.getRow() + "," + currentTile.getColumn() );
+		
 		if(currentTile.getType().equals("F"))
-			return true;
-		else return false;
+		{
+			end = true;
+			System.out.println("que me he puesto a true");
+		}
+			
+			
+		System.out.println(" --->" + end);
+		 return end;
 	}
 }
