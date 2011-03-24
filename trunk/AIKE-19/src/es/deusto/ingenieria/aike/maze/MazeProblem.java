@@ -18,7 +18,7 @@ public class MazeProblem extends Problem
 	public MazeProblem()
 	{
 		super();
-		this.createOperators();
+		//this.createOperators();
 	}
 
 
