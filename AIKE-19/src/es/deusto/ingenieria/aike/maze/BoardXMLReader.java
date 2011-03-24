@@ -38,14 +38,14 @@ public class BoardXMLReader extends InformationXMLReader
 		
 		
 		//estos for son para crear las casillas de circulos
-		for(int i = 0 ; i <= this.rows-1; i++)
+		for(int i = 0 ; i < this.rows; i++)
 		{
-			for(int j = 0; j<= this.columns-1; j++)
+			for(int j = 0; j< this.columns; j++)
 			{
 				if(initialTiles[i][j] == null)
 				{
 					//creamos el tile de circulo
-					initialTiles[i][j]= new Tile("O", i, j);
+					initialTiles[i][j]= new Tile("O", i+1, j+1);
 				}
 			}
 		}
