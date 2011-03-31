@@ -7,21 +7,39 @@ public class Board
 	private Tile[][] tiles;
 	private Tile car;
 	private Tile previousTile;
+	private Tile flag;
+	private double pathCost = 0;
 	
 	
 
 
-	public Board(Tile[][] tiles, Tile car) 
+	public Board(Tile[][] tiles, Tile car, Tile flag, double pathCost) 
 	{
 		this.tiles = new Tile [tiles.length][tiles[0].length];
 		this.tiles = tiles;
 		this.car = car;
 		this.previousTile = car;
+		this.flag = flag;
+		this.pathCost = pathCost;
 	}
 	
 	
 	
 	
+	public double getPathCost() {
+		return pathCost;
+	}
+
+
+
+
+	public void setPathCost(double pathCost) {
+		this.pathCost = pathCost;
+	}
+
+
+
+
 	public Tile getCar() 
 	{
 		return car;
@@ -33,6 +51,21 @@ public class Board
 	{
 		this.car = car;
 	}
+	
+
+
+
+	public Tile getFlag() {
+		return flag;
+	}
+
+
+
+
+	public void setFlag(Tile flag) {
+		this.flag = flag;
+	}
+
 
 
 
@@ -64,7 +97,7 @@ public class Board
 	
 	public Tile getTile(int row, int column)
 	{
-		//las coordenadas que se me pasan aqui son de la vida real, por lo que en el array ser‡n una unidad menos
+		//las coordenadas que se me pasan aqui son de la vida real, por lo que en el array serï¿½n una unidad menos
 		return this.tiles[row-1][column-1];		
 	}	
 		
@@ -108,7 +141,7 @@ public class Board
 			if(equals == true) //significa que el tablero es el mismo y ahora hay que comprobar la posicion del coche
 				//actual y la previous 
 			{
-				equals = (this.car.equals(((Board)obj).getCar())) && (this.previousTile.equals(((Board)obj).getPreviousTile())); //llamara internamente al equals de Tile
+				equals = (this.car.equals(((Board)obj).getCar())) && (this.previousTile.equals(((Board)obj).getPreviousTile()) && (this.pathCost == ((Board)obj).getPathCost())); //llamara internamente al equals de Tile
 				//mirara si sus coordenadas son iguales, si su tipo es igual y sis susparedes son las mismas
 				//de hecho la unica que va a tener paredes es la bandera 
 			}
@@ -142,6 +175,8 @@ public class Board
 	{
 		Tile[][] newBoard = new Tile[this.tiles.length][this.tiles[0].length];
 		Tile newCar = (Tile) this.car.clone(); 
+		Tile newFlag = (Tile) this.flag.clone();
+		Double cost = this.pathCost;
 
 		
 		//como me voy a recorrer el array bidemensional , no necesito qeu la longitud
@@ -153,6 +188,6 @@ public class Board
 				newBoard[i][j] = (Tile)this.tiles[i][j].clone();				
 			}
 		}
-		return new Board(this.tiles, newCar);
+		return new Board(this.tiles, newCar,newFlag, cost);
 	}
 }

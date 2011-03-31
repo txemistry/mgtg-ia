@@ -322,7 +322,7 @@ public class CarMovement extends Operator {
 		}
 	}
 
-	protected State effect(State state) //ME HE QUEDADO AQUI...
+	protected State effect(State state)
 	{
 		Board board = (Board)state.getInformation(); //cogemos la situacion actual
 		Board newBoard = (Board)board.clone();	//clonamos la situacion actual en un nuevo board
@@ -344,6 +344,7 @@ public class CarMovement extends Operator {
 				//quiero mover el coche a la tile que esta debajo mio. por eso primero la cogemos
 				Tile destinationTile = newBoard.getTile(currentTile.getRow()+1, currentTile.getColumn());
 				newBoard.moveCar(destinationTile);
+				
 				break;
 			}
 			case RIGHT:
@@ -363,6 +364,7 @@ public class CarMovement extends Operator {
 
 		}
 
+		newBoard.setPathCost(board.getPathCost() + this.getCost());
 		return new State(newBoard);
 	}
 }

@@ -50,7 +50,9 @@ public class BoardXMLReader extends InformationXMLReader
 			}
 		}
 		
-		return new Board(this.initialTiles, this.initialCar);
+		Tile flagTile = new Tile("F", this.flagRow, this.flagColumn); 
+		
+		return new Board(this.initialTiles, this.initialCar, flagTile, 0);
 	}
 
 	public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException 
