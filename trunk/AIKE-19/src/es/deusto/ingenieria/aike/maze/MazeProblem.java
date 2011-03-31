@@ -20,23 +20,28 @@ public class MazeProblem extends Problem
 		super();
 		//this.createOperators();
 	}
+	
 
 
 	public void createOperators() 
 	{
 		Operator operator = new CarMovement(Destination.UP);
+		operator.setCost(1);
 		this.addOperator(operator);
 		System.out.println("Se ha creado el operador UP");
 		
 		operator = new CarMovement(Destination.DOWN);
+		operator.setCost(1);
 		this.addOperator(operator);
 		System.out.println("Se ha creado el operador DOWN");
 		
 		operator = new CarMovement(Destination.RIGHT);
+		operator.setCost(1);
 		this.addOperator(operator);
 		System.out.println("Se ha creado el operador RIGHT");
 		
 		operator = new CarMovement(Destination.LEFT);
+		operator.setCost(1);
 		this.addOperator(operator);
 		System.out.println("Se ha creado el operador LEFT");
 	}
@@ -50,6 +55,10 @@ public class MazeProblem extends Problem
 		
 		if (finalNode != null) {
 			System.out.println("* Solution found!!");
+			
+			double pathCost = ((Board)finalNode.getState().getInformation()).getPathCost();
+			
+			System.out.println("The total pathCost of the problem assuming that each movement is associated with a value of 1: " + pathCost);
 			List<String> operators = new ArrayList<String>();
 			searchMethod.solutionPath(finalNode, operators);
 			searchMethod.createSolutionLog(operators);
