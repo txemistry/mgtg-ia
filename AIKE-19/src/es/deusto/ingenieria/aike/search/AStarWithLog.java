@@ -7,7 +7,6 @@ import java.util.List;
 
 import es.deusto.ingenieria.aike.formulation.Problem;
 import es.deusto.ingenieria.aike.formulation.State;
-import es.deusto.ingenieria.aike.search.heuristic.BestFS;
 import es.deusto.ingenieria.aike.search.heuristic.EvaluationFunction;
 import es.deusto.ingenieria.aike.search.log.SearchLog;
 import es.deusto.ingenieria.ingenieria.search.Node;
