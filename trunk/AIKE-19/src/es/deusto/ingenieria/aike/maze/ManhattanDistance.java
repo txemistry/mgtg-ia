@@ -20,7 +20,9 @@ public class ManhattanDistance extends EvaluationFunction
 		int distancia = 0;
 		distancia = distanciaManhattan(currentTile, flagTile);
 		
-		return distancia;
+		System.out.println("estoy calculando la heuristica del nodo: " + ((Board) nodo.getState().getInformation()).toString() + " y es: " + distancia);
+		
+		return distancia * -1;
 	}
 	
 	private int distanciaManhattan(Tile ficha1, Tile ficha2) 
