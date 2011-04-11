@@ -15,7 +15,7 @@ import es.deusto.ingenieria.ingenieria.search.Node;
 /**
  * Class defining the Best First Search method.
  */
-public class AStarWithLog extends BestFS {
+public class AStarWithLog extends AStar {
 
 	/**
 	 * Constructor method.

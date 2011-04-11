@@ -56,7 +56,8 @@ public class MazeProblem extends Problem
 		if (finalNode != null) {
 			System.out.println("* Solution found!!");
 			
-			double pathCost = ((Board)finalNode.getState().getInformation()).getPathCost();
+			//double pathCost = ((Board)finalNode.getState().getInformation()).getPathCost();
+			double pathCost = finalNode.getG() * -1;
 			
 			System.out.println("The total pathCost of the problem assuming that each movement is associated with a value of 1: " + pathCost);
 			List<String> operators = new ArrayList<String>();
@@ -78,16 +79,13 @@ public class MazeProblem extends Problem
 		Board board = (Board)state.getInformation();
 		Tile currentTile= board.getCar();
 		
-		System.out.print("estoy en isFinal " + currentTile.getRow() + "," + currentTile.getColumn() );
-		
+		System.out.println("comprobado estado final en:" + ((Board) state.getInformation()).toString());
 		if(currentTile.getType().equals("F"))
 		{
 			end = true;
-			System.out.println("que me he puesto a true");
 		}
 			
 			
-		System.out.println(" --->" + end);
 		 return end;
 	}
 }

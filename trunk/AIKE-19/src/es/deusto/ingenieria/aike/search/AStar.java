@@ -142,43 +142,6 @@ public class AStar extends HeuristicSearchMethod
 		State successorState = null;
 		
 		
-		/*for each successors of "node"
-		 {
-		 	//ESTO SE METERIA EN NUEVO CODIGO????
-		 
-		 	if (!generatedStates.contains(successorNode) && !expandedStates.contains(successorNode)) 
-		 	{
-		 		float f = this.getEvaluationFunction.calculateH(successorNode) + this.getEvaluationFunction.calculateG(successorNode);
-		 		succesorNode.setParent(node);
-		 		successorNodes.add(successorNode);
-		 	}
-		 	else EL NODO SUCESOR ESTA O EN LA FRONTIER O EN EXPANDED
-		 	{
-		 		if(generatedStates.contains(successorNode)
-		 		{
-		 			float fNew = this.getEvaluationFunction.calculateH(successorNode) + this.getEvaluationFunction.calculateG(successorNode);
-		 			if(f > fNew)
-		 			{
-		 				successorNode.setParent(node);
-		 				f = fNew;
-		 			}
-		 		}
-		 		else ESTA EN LA LISTA EXPAND
-		 		{
-		 				float fNew = this.getEvaluationFunction.calculateH(successorNode) + this.getEvaluationFunction.calculateG(successorNode);
-		 				if(f > fNew)
-		 				{
-		 					successorNode.setParent(node);
-		 					f = fNew;
-		 					actualizar la f() de los hijos de successor???
-		 				} 
-
-		 		}
-		 	}
-		 }
-		 
-		*/
-		
 		
 		
 		
@@ -216,8 +179,14 @@ public class AStar extends HeuristicSearchMethod
 							successorNode.setDepth(node.getDepth() + 1);
 							//evaluation function = heuristic function
 							successorNode.setH(this.getEvaluationFunction().calculateH(successorNode));
-							successorNode.setG(this.getEvaluationFunction().calculateG(successorNode));
-							 System.out.println("el caluculo del nodo: " + ((Board) successorNode.getState().getInformation()).toString() + " es: "+ successorNode.getG() + "+" + successorNode.getH() + "=" + (successorNode.getG()+successorNode.getH()));
+							
+							//Para saber su G es decir pathCost, sera el pathCost de su padre mas el valor asociado al operador en curso
+							
+							successorNode.setG(this.getEvaluationFunction().calculateG(successorNode.getParent()) - operator.getCost());
+							System.out.println("el caluculo del nodo: " + ((Board) successorNode.getState().getInformation()).toString() + " es: ");
+							System.out.println("        Heuristica: " + successorNode.getH() );
+							System.out.println("        Path Cost: " +  successorNode.getG() );
+					
 														
 							//Add the new node to the list of successor nodes.
 							successorNodes.add(successorNode);

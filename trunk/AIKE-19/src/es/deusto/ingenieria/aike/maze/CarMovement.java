@@ -340,7 +340,7 @@ public class CarMovement extends Operator {
 
 		}
 
-		newBoard.setPathCost(board.getPathCost() + this.getCost());
+		//newBoard.setPathCost(board.getPathCost() + this.getCost());
 		return new State(newBoard);
 	}
 }

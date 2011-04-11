@@ -8,25 +8,25 @@ public class Board
 	private Tile car;
 	private Tile previousTile;
 	private Tile flag;
-	private double pathCost = 0;
+	//private double pathCost = 0;
 	
 	
 
 
-	public Board(Tile[][] tiles, Tile car, Tile flag, double pathCost) 
+	public Board(Tile[][] tiles, Tile car, Tile flag) 
 	{
 		this.tiles = new Tile [tiles.length][tiles[0].length];
 		this.tiles = tiles;
 		this.car = car;
 		this.previousTile = car;
 		this.flag = flag;
-		this.pathCost = pathCost;
+		//this.pathCost = pathCost;
 	}
 	
 	
 	
 	
-	public double getPathCost() {
+	/*public double getPathCost() {
 		return pathCost;
 	}
 
@@ -35,7 +35,7 @@ public class Board
 
 	public void setPathCost(double pathCost) {
 		this.pathCost = pathCost;
-	}
+	}*/
 
 
 
@@ -141,7 +141,7 @@ public class Board
 			if(equals == true) //significa que el tablero es el mismo y ahora hay que comprobar la posicion del coche
 				//actual y la previous 
 			{
-				equals = (this.car.equals(((Board)obj).getCar())) && (this.previousTile.equals(((Board)obj).getPreviousTile()) && (this.pathCost == ((Board)obj).getPathCost())); //llamara internamente al equals de Tile
+				equals = (this.car.equals(((Board)obj).getCar())) && (this.previousTile.equals(((Board)obj).getPreviousTile()));// && (this.pathCost == ((Board)obj).getPathCost())); //llamara internamente al equals de Tile
 				//mirara si sus coordenadas son iguales, si su tipo es igual y sis susparedes son las mismas
 				//de hecho la unica que va a tener paredes es la bandera 
 			}
@@ -176,7 +176,7 @@ public class Board
 		Tile[][] newBoard = new Tile[this.tiles.length][this.tiles[0].length];
 		Tile newCar = (Tile) this.car.clone(); 
 		Tile newFlag = (Tile) this.flag.clone();
-		Double cost = this.pathCost;
+		//Double cost = this.pathCost;
 
 		
 		//como me voy a recorrer el array bidemensional , no necesito qeu la longitud
@@ -188,6 +188,6 @@ public class Board
 				newBoard[i][j] = (Tile)this.tiles[i][j].clone();				
 			}
 		}
-		return new Board(this.tiles, newCar,newFlag, cost);
+		return new Board(this.tiles, newCar,newFlag);
 	}
 }
