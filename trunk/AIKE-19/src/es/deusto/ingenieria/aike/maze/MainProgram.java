@@ -1,6 +1,7 @@
 package es.deusto.ingenieria.aike.maze;
 
 import es.deusto.ingenieria.aike.formulation.State;
+import es.deusto.ingenieria.aike.search.AStarWithLog;
 import es.deusto.ingenieria.aike.search.heuristic.BestFSwithLog;
 import es.deusto.ingenieria.aike.xml.InformationXMLReader;
 import es.deusto.ingenieria.ingenieria.search.SearchMethod;
@@ -20,9 +21,13 @@ public class MainProgram {
 			problem.addInitialState(initialState);	
 			
 		
-			//Con heuristica
-			SearchMethod search = new BestFSwithLog(new ManhattanDistance());
+			//Con A*
+			SearchMethod search = new AStarWithLog(new ManhattanDistance());
 			problem.solve(search);
+			
+			//Con heuristica
+			//SearchMethod search = new BestFSwithLog(new ManhattanDistance());
+			//problem.solve(search);
 			
 			
 			//Sin heuristica
