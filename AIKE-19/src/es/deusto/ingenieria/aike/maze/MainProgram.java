@@ -12,7 +12,7 @@ public class MainProgram {
 		try 
 		{
 			MazeProblem problem = new MazeProblem();
-			InformationXMLReader entornoSAXParser = new BoardXMLReader("data/parkinglotmaze4.xml"); 					
+			InformationXMLReader entornoSAXParser = new BoardXMLReader("data/parkinglotmaze1.xml"); 					
 			State initialState = new State((Board)entornoSAXParser.getInformation());
 			System.out.println(initialState.toString());
 			
