@@ -190,7 +190,7 @@ public class AStar extends HeuristicSearchMethod
 						
 						
 						
-						double f = 0;
+						double fNew = 0;
 						if(!frontier.contains(successorNode) && !expandedNodes.contains(successorNode))
 						{
 							System.out.println("estoy en el primer if");
@@ -198,7 +198,7 @@ public class AStar extends HeuristicSearchMethod
 							successorNode.setParent(node);
 							double heuristic = this.getEvaluationFunction().calculateH(successorNode);
 							double pathCost = this.getEvaluationFunction().calculateG(successorNode.getParent()) - operator.getCost();
-							f = heuristic + pathCost; //son calculadas en negativo
+							fNew = heuristic + pathCost; //son calculadas en negativo
 							
 							//le seteamos sus valores de G y H y su depth
 							successorNode.setDepth(node.getDepth() + 1);
@@ -212,19 +212,40 @@ public class AStar extends HeuristicSearchMethod
 						if(frontier.contains(successorNode))
 						{
 							//no deberia coger el nodo que he enconrado en  frontier porque es ese el que se va a modificar?
-							System.out.println("estoy en el segundo if");
-							double fNew = 0;
-							double heuristic = this.getEvaluationFunction().calculateH(successorNode);
-							double pathCost = this.getEvaluationFunction().calculateG(successorNode.getParent()) - operator.getCost();
-							fNew = heuristic + pathCost;
-							if(f < fNew)
-							{
-								successorNode.setParent(node);
-								//la heuristica no cambiaria, pero el path cost si poruqe ha cambiado su padre
-								//este successorNode no deberia ser el encontrado en frontier?
-								pathCost = this.getEvaluationFunction().calculateG(successorNode.getParent()) - operator.getCost();;
-								successorNode.setG(pathCost);
 							
+							
+							System.out.println("estoy en el segundo if");
+							Node oldNode = frontier.get(frontier.indexOf(successorNode));
+							//ahora deberia calcular la fNew de oldNode
+							
+							
+							double fPrevious = 0;
+							double heuristic = this.getEvaluationFunction().calculateH(oldNode);
+							double pathCost = this.getEvaluationFunction().calculateG(oldNode);
+							fPrevious = heuristic + pathCost; //este es la f del nodo que ya estaba en frontier
+							
+							heuristic = this.getEvaluationFunction().calculateH(successorNode);
+							pathCost =  this.getEvaluationFunction().calculateG(node) - operator.getCost();
+							fNew = heuristic + pathCost;
+							
+							if(fPrevious < fNew) //significa que es mejor el pathcost del nuevo padre
+							{
+								oldNode.setParent(node);
+								//la heuristica no cambiaria, pero el path cost si poruqe ha cambiado su padre
+								successorNode.setG(pathCost);
+							}
+							else
+							{
+								successorNode.setOperator(operator.getName());
+								successorNode.setParent(node);
+								 heuristic = this.getEvaluationFunction().calculateH(successorNode);
+								 pathCost = this.getEvaluationFunction().calculateG(successorNode.getParent()) - operator.getCost();
+								
+								
+								//le seteamos sus valores de G y H y su depth
+								successorNode.setDepth(node.getDepth() + 1);
+								successorNode.setH(heuristic);
+								successorNode.setG(pathCost);
 							}
 							
 						}
@@ -232,24 +253,38 @@ public class AStar extends HeuristicSearchMethod
 						if(expandedNodes.contains(successorNode))
 						{
 							System.out.println("estoy en el tercer if");
-							double fNew = 0;
-							double heuristic = this.getEvaluationFunction().calculateH(successorNode);
-							System.out.println("aqui llego");
-							//esta es la sentencia que peta poruqe como aun no se ha linkado un padre al successorNode
-							//coge null y da excepcion, por eso, no se deberia de coger el de la lista y no el que me acabo de generar???
-							double pathCost = this.getEvaluationFunction().calculateG(successorNode.getParent()) - operator.getCost();
-							System.out.println("Aqui no llego");
+							Node oldNode = expandedNodes.get(expandedNodes.indexOf(successorNode));
+							//ahora deberia calcular la fNew de oldNode
+							
+							
+							double fPrevious = 0;
+							double heuristic = this.getEvaluationFunction().calculateH(oldNode);
+							double pathCost = this.getEvaluationFunction().calculateG(oldNode);
+							fPrevious = heuristic + pathCost; //este es la f del nodo que ya estaba en frontier
+							
+							heuristic = this.getEvaluationFunction().calculateH(successorNode);
+							pathCost =  this.getEvaluationFunction().calculateG(node) - operator.getCost();
 							fNew = heuristic + pathCost;
-							if(f < fNew)
+							
+							if(fPrevious < fNew) //significa que es mejor el pathcost del nuevo padre
 							{
-								successorNode.setParent(node);
+								oldNode.setParent(node);
 								//la heuristica no cambiaria, pero el path cost si poruqe ha cambiado su padre
-								//este successorNode no deberia ser el encontrado en frontier?
-								pathCost = this.getEvaluationFunction().calculateG(successorNode.getParent()) - operator.getCost();;
 								successorNode.setG(pathCost);
-								
-								//ahora se llamaria a la funcion recursiva
 								this.updateChildren(successorNode, frontier, expandedNodes);
+							}
+							else
+							{
+								successorNode.setOperator(operator.getName());
+								successorNode.setParent(node);
+								 heuristic = this.getEvaluationFunction().calculateH(successorNode);
+								 pathCost = this.getEvaluationFunction().calculateG(successorNode.getParent()) - operator.getCost();
+								
+								
+								//le seteamos sus valores de G y H y su depth
+								successorNode.setDepth(node.getDepth() + 1);
+								successorNode.setH(heuristic);
+								successorNode.setG(pathCost);
 							}
 							
 						}
@@ -295,6 +330,7 @@ public class AStar extends HeuristicSearchMethod
 	
 	private void updateChildren(Node successorNode, List<Node> frontier, List<Node> expandedNodes)
 	{
+		System.out.println("ESTOY EN LA RECURSIVA");
 		for(int i = 0; i<frontier.size(); i++)
 		{
 			Node auxNode = frontier.get(i);
