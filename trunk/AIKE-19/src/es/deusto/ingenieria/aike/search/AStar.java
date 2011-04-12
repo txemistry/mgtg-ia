@@ -8,7 +8,6 @@ import java.util.List;
 import es.deusto.ingenieria.aike.formulation.Operator;
 import es.deusto.ingenieria.aike.formulation.Problem;
 import es.deusto.ingenieria.aike.formulation.State;
-import es.deusto.ingenieria.aike.maze.Board;
 import es.deusto.ingenieria.aike.search.heuristic.EvaluationFunction;
 import es.deusto.ingenieria.aike.search.heuristic.HeuristicSearchMethod;
 import es.deusto.ingenieria.ingenieria.search.Node;
