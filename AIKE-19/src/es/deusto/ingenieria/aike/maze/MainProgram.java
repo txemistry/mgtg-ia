@@ -2,7 +2,6 @@ package es.deusto.ingenieria.aike.maze;
 
 import es.deusto.ingenieria.aike.formulation.State;
 import es.deusto.ingenieria.aike.search.AStarWithLog;
-import es.deusto.ingenieria.aike.search.heuristic.BestFSwithLog;
 import es.deusto.ingenieria.aike.xml.InformationXMLReader;
 import es.deusto.ingenieria.ingenieria.search.SearchMethod;
 
