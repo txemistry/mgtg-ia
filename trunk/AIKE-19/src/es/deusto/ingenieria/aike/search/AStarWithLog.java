@@ -12,34 +12,19 @@ import es.deusto.ingenieria.aike.search.log.SearchLog;
 import es.deusto.ingenieria.ingenieria.search.Node;
 
 /**
- * Class defining the Best First Search method.
+ * Class defining the A* method.
  */
 public class AStarWithLog extends AStar {
 
 	/**
 	 * Constructor method.
-	 * @param function evaluation function to be used by Best First Search.
+	 * @param function evaluation function to be used by A*.
 	 */
 	public AStarWithLog(EvaluationFunction function){
 		super(function);
 	}
 	
-	/**
-	 * Carries out a search process from the initial state
-	 * to the final state of the given problem.
-	 * This method is defined according to the second version of the basic search algorithm
-	 * which checks for repeated states (refer to the last algorithm studied in chapter 3).
-	 * 
-	 * @param problem
-	 *            Problem to be solved by a search method.
-	 * @param initialState
-	 *            Problem's initial state. 
-	 * @return Node
-	 *         <ul>
-	 *         <li>If a solution is found, Node contains the problem's final state</li>
-	 *         <li>If the problem can't be solved, Node contains null.</li>
-	 *         </ul>
-	 */
+
 	public Node search(Problem problem, State initialState) {
 		//A list to keep the nodes generated during the search process.
 		List<Node> frontier = new ArrayList<Node>();

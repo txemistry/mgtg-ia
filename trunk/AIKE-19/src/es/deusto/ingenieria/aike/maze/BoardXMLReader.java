@@ -30,21 +30,21 @@ public class BoardXMLReader extends InformationXMLReader
 	
 	public Object getInformation() 
 	{
-		//esto es para poner el flag en su sitio y crear la posicion inicial del coche
+		//For putting the flag in its place and create the initial position of the car
 		
 		
 		this.initialTiles[flagRow-1][flagColumn-1] = new Tile("F", flagRow, flagColumn, flagUP, flagDOWN, flagRIGHT, flagLEFT);
 		this.initialCar = new Tile(carRow, carColumn);
 		
 		
-		//estos for son para crear las casillas de circulos
+		//For creating the O tiles
 		for(int i = 0 ; i < this.rows; i++)
 		{
 			for(int j = 0; j< this.columns; j++)
 			{
 				if(initialTiles[i][j] == null)
 				{
-					//creamos el tile de circulo
+					//We create the O tile
 					initialTiles[i][j]= new Tile("O", i+1, j+1);
 				}
 			}

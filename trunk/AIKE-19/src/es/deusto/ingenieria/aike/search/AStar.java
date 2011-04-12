@@ -13,14 +13,14 @@ import es.deusto.ingenieria.aike.search.heuristic.HeuristicSearchMethod;
 import es.deusto.ingenieria.ingenieria.search.Node;
 
 /**
- * Class defining the Best First Search method.
+ * Class defining the A*.
  */
 public class AStar extends HeuristicSearchMethod 
 {
 
 	/**
 	 * Constructor method.
-	 * @param function evaluation function to be used by Best First Search.
+	 * @param function evaluation function to be used by A*.
 	 */
 	public AStar(EvaluationFunction function)
 	{
@@ -53,7 +53,7 @@ public class AStar extends HeuristicSearchMethod
 		
 		
 		//List of states expended during the search process. This is used to check for repeated states.
-		List<State> expandedStates = new ArrayList<State>(); //PASO 3?????
+		List<State> expandedStates = new ArrayList<State>();
 		
 		
 		//First node in the list of generated nodes.
@@ -65,15 +65,15 @@ public class AStar extends HeuristicSearchMethod
 
 		
 		//Initialize the generated nodes list with a node containing the problem's initial state.
-		frontier.add(new Node(initialState)); //ESTE ES EL PASO 1 Y EL PASO 2 JUNTOS
+		frontier.add(new Node(initialState));
 		
 
 		
 		//Loop until the problem is solved or the generated nodes list is empty
-		while (!solutionFound && !frontier.isEmpty()) //PASO 4
+		while (!solutionFound && !frontier.isEmpty()) 
 		{			
 			//remove the first node from the generated nodes list.
-			firstNode = frontier.remove(0);//PASO 4.1 	
+			firstNode = frontier.remove(0);	
 			//If the first node contains a problem's final state
 			if (problem.isFinalState(firstNode.getState())) //PASO 4.2
 			{
@@ -81,16 +81,15 @@ public class AStar extends HeuristicSearchMethod
 				solutionFound = true;
 			//If the first node doesn't contain a problem's final state				
 			} 
-			else //PASO 4.3
+			else 
 			{
-				//metemos el nodo actual en la lista de expanded
-				expandedStates.add(firstNode.getState()); //PASO 4.3.1???
+				//the actual node in the expanded list
+				expandedStates.add(firstNode.getState()); 
 				
 				
-				//AL METODO EXPAND LE LLEGARIAN LISTAS DE NODOS EN VEZ DE LISTAS DE ESTADOS,
-				//SIN EMBARGO, COMO ESTO SUPONDRIA CAMBIAR LAS CABECERAS DE LAS PLANTILLAS
-				//HEMOS DECIDIDO MANTENERLAS COMO ESTAN, Y CONSTRUIR LAS LISTAS DE NODOS 
-				//AL COMIENZO DEL METODO EXPAND
+				//THE EXPAND METHOD MUST WORK WITH NODE LISTS AND NOT WITH STATE LISTS
+				//THIS MEANS TO CHANGE THE HEADERS OF THE TEMPLATE SO WE HAVE DECIDED
+				//TO KEEP THEM AND CONSTRUCT THE NODE LISTS AT THE BEGGINING OH THE EXPAND METHOD
 				
 				
 				
@@ -101,17 +100,17 @@ public class AStar extends HeuristicSearchMethod
 				{
 					
 					//Add the successor nodes to the generated nodes list.
-					frontier.addAll(successorNodes); //PASO 4.3.2
+					frontier.addAll(successorNodes);
 					
 					//Sort the generated nodes list according to the evaluation function value
 					//of the nodes. This comparison criteria is defined within the compareTo()
 					//method of Node.
-					Collections.sort(frontier); //PASO 4.3.3 como ordenamos segun el criterio f(n)??
+					Collections.sort(frontier);
 				}
 			}
 		}
 		
-		// If the problem is solved //PASO 5
+		// If the problem is solved 
 		if (solutionFound) {
 			//Return the first node as it contains the problem's final state
 			return firstNode;
@@ -149,7 +148,7 @@ public class AStar extends HeuristicSearchMethod
 		List<Node> frontier = new ArrayList<Node>();
 		List<Node> expandedNodes = new ArrayList<Node>();
 		
-		//INICIALIZAMOS ESAS LISTAS
+		//iNITIALIZE THE LISTS
 		for(State auxState:generatedStates)
 		{
 			frontier.add(new Node(auxState));
@@ -159,8 +158,6 @@ public class AStar extends HeuristicSearchMethod
 		{
 			expandedNodes.add(new Node(auxState));
 		}
-		
-		
 		
 		
 		
@@ -192,14 +189,14 @@ public class AStar extends HeuristicSearchMethod
 						double fNew = 0;
 						if(!frontier.contains(successorNode) && !expandedNodes.contains(successorNode))
 						{
-							System.out.println("estoy en el primer if");
+							System.out.println("I am in the first if");
 							successorNode.setOperator(operator.getName());
 							successorNode.setParent(node);
 							double heuristic = this.getEvaluationFunction().calculateH(successorNode);
 							double pathCost = this.getEvaluationFunction().calculateG(successorNode.getParent()) - operator.getCost();
-							fNew = heuristic + pathCost; //son calculadas en negativo
+							fNew = heuristic + pathCost; //We calculate them in negative
 							
-							//le seteamos sus valores de G y H y su depth
+							//We set the G, the H and the depth
 							successorNode.setDepth(node.getDepth() + 1);
 							successorNode.setH(heuristic);
 							successorNode.setG(pathCost);
@@ -210,27 +207,24 @@ public class AStar extends HeuristicSearchMethod
 						
 						if(frontier.contains(successorNode))
 						{
-							//no deberia coger el nodo que he enconrado en  frontier porque es ese el que se va a modificar?
 							
-							
-							System.out.println("estoy en el segundo if");
+							System.out.println("I am in the second if");
 							Node oldNode = frontier.get(frontier.indexOf(successorNode));
-							//ahora deberia calcular la fNew de oldNode
-							
+							//Now should calculate	the fnew of oldNode						
 							
 							double fPrevious = 0;
 							double heuristic = this.getEvaluationFunction().calculateH(oldNode);
 							double pathCost = this.getEvaluationFunction().calculateG(oldNode);
-							fPrevious = heuristic + pathCost; //este es la f del nodo que ya estaba en frontier
+							fPrevious = heuristic + pathCost; //The f of the node that is in the frontier
 							
 							heuristic = this.getEvaluationFunction().calculateH(successorNode);
 							pathCost =  this.getEvaluationFunction().calculateG(node) - operator.getCost();
 							fNew = heuristic + pathCost;
 							
-							if(fPrevious < fNew) //significa que es mejor el pathcost del nuevo padre
+							if(fPrevious < fNew) //It means that the F of the new parent is better
 							{
 								oldNode.setParent(node);
-								//la heuristica no cambiaria, pero el path cost si poruqe ha cambiado su padre
+								//The heuristic is the same but the G no, because we have changed his parent
 								successorNode.setG(pathCost);
 							}
 							else
@@ -241,7 +235,7 @@ public class AStar extends HeuristicSearchMethod
 								 pathCost = this.getEvaluationFunction().calculateG(successorNode.getParent()) - operator.getCost();
 								
 								
-								//le seteamos sus valores de G y H y su depth
+								//We set the F, G anf depth
 								successorNode.setDepth(node.getDepth() + 1);
 								successorNode.setH(heuristic);
 								successorNode.setG(pathCost);
@@ -251,24 +245,24 @@ public class AStar extends HeuristicSearchMethod
 						
 						if(expandedNodes.contains(successorNode))
 						{
-							System.out.println("estoy en el tercer if");
+							System.out.println("I am in the third if");
 							Node oldNode = expandedNodes.get(expandedNodes.indexOf(successorNode));
-							//ahora deberia calcular la fNew de oldNode
+							//Now should calculate	the fnew of oldNode
 							
 							
 							double fPrevious = 0;
 							double heuristic = this.getEvaluationFunction().calculateH(oldNode);
 							double pathCost = this.getEvaluationFunction().calculateG(oldNode);
-							fPrevious = heuristic + pathCost; //este es la f del nodo que ya estaba en frontier
+							fPrevious = heuristic + pathCost; //The f of the node that is in the frontier
 							
 							heuristic = this.getEvaluationFunction().calculateH(successorNode);
 							pathCost =  this.getEvaluationFunction().calculateG(node) - operator.getCost();
 							fNew = heuristic + pathCost;
 							
-							if(fPrevious < fNew) //significa que es mejor el pathcost del nuevo padre
+							if(fPrevious < fNew) //It means that the F of the new parent is better
 							{
 								oldNode.setParent(node);
-								//la heuristica no cambiaria, pero el path cost si poruqe ha cambiado su padre
+								//The heuristic is the same but the G no, because we have changed his parent
 								successorNode.setG(pathCost);
 								this.updateChildren(successorNode, frontier, expandedNodes);
 							}
@@ -280,7 +274,7 @@ public class AStar extends HeuristicSearchMethod
 								 pathCost = this.getEvaluationFunction().calculateG(successorNode.getParent()) - operator.getCost();
 								
 								
-								//le seteamos sus valores de G y H y su depth
+								//We set the G, the H and the depth
 								successorNode.setDepth(node.getDepth() + 1);
 								successorNode.setH(heuristic);
 								successorNode.setG(pathCost);
@@ -288,39 +282,12 @@ public class AStar extends HeuristicSearchMethod
 							
 						}
 						
-						System.out.println("        Heuristica: " + successorNode.getH() );
+						System.out.println("        Heuristic: " + successorNode.getH() );
 						System.out.println("        Path Cost: " +  successorNode.getG() );
 						
 						
 						
-						/*//NUEVO CODIGO??????
-						
-						//If the new node hadn't been generated before nor expanded
-						//if (!generatedStates.contains(successorNode) && !expandedStates.contains(successorNode)) 
-						//{
-							//Set values for the various node's attributes
-							successorNode.setOperator(operator.getName());
-							successorNode.setParent(node);
-							successorNode.setDepth(node.getDepth() + 1);
-							//evaluation function = heuristic function
-							successorNode.setH(this.getEvaluationFunction().calculateH(successorNode));
-							
-							//Para saber su G es decir pathCost, sera el pathCost de su padre mas el valor asociado al operador en curso
-							
-							successorNode.setG(this.getEvaluationFunction().calculateG(successorNode.getParent()) - operator.getCost());
-							System.out.println("el caluculo del nodo: " + ((Board) successorNode.getState().getInformation()).toString() + " es: ");
-							System.out.println("        Heuristica: " + successorNode.getH() );
-							System.out.println("        Path Cost: " +  successorNode.getG() );
-					
-														
-							//Add the new node to the list of successor nodes.
-							successorNodes.add(successorNode);
-							//Insert current successor State to the list of generated states
-							generatedStates.add(successorState);
-						//}
-*/					}
-					
-					
+					}	
 				}
 			}
 		}
@@ -329,13 +296,13 @@ public class AStar extends HeuristicSearchMethod
 	
 	private void updateChildren(Node successorNode, List<Node> frontier, List<Node> expandedNodes)
 	{
-		System.out.println("ESTOY EN LA RECURSIVA");
+		System.out.println("I am in the recursive one");
 		for(int i = 0; i<frontier.size(); i++)
 		{
 			Node auxNode = frontier.get(i);
 			if(auxNode.getParent().equals(successorNode))
 			{
-				//SOY SU PADRE
+				//I am his father
 				auxNode.setG(this.getEvaluationFunction().calculateH(auxNode));
 				auxNode.setG(this.getEvaluationFunction().calculateG(successorNode) - 1);
 			}
@@ -346,10 +313,10 @@ public class AStar extends HeuristicSearchMethod
 			Node auxNode = expandedNodes.get(i);
 			if(auxNode.getParent().equals(successorNode))
 			{
-				//SOY SU PADRE
+				//I am his father
 				auxNode.setG(this.getEvaluationFunction().calculateH(auxNode));
 				auxNode.setG(this.getEvaluationFunction().calculateG(successorNode) - 1);
-				this.updateChildren(auxNode, frontier, expandedNodes);
+				this.updateChildren(auxNode, frontier, expandedNodes); //The recursive method for if our kids have kids and so on
 			}
 		}
 	}
