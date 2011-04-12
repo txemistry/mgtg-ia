@@ -12,7 +12,7 @@ public class MainProgram {
 		try 
 		{
 			MazeProblem problem = new MazeProblem();
-			InformationXMLReader entornoSAXParser = new BoardXMLReader("data/parkinglotmaze4.xml"); 					
+			InformationXMLReader entornoSAXParser = new BoardXMLReader("data/parkinglotmaze1.xml"); 					
 			State initialState = new State((Board)entornoSAXParser.getInformation());
 			System.out.println(initialState.toString());
 			
@@ -20,16 +20,16 @@ public class MainProgram {
 			problem.addInitialState(initialState);	
 			
 		
-			//Con A*
+			//With A*
 			SearchMethod search = new AStarWithLog(new ManhattanDistance());
 			problem.solve(search);
 			
-			//Con heuristica
+			//With heuristics
 			//SearchMethod search = new BestFSwithLog(new ManhattanDistance());
 			//problem.solve(search);
 			
 			
-			//Sin heuristica
+			//Without heuristics
 			//SearchMethod search = DepthFSwithLog.getInstance();
 			//problem.solve(search);
 			

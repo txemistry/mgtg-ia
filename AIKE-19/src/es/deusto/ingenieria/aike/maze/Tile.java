@@ -5,7 +5,7 @@ import java.awt.Point;
 public class Tile extends Point 
 {
 	private static final long serialVersionUID = 1L;
-	private String type = "U"; //sera O, X ó F U para unknown
+	private String type = "U";//It will be O, X or F, U for unknown
 	private boolean up_wall;
 	private boolean down_wall;
 	private boolean right_wall;
@@ -111,8 +111,7 @@ public class Tile extends Point
 
 	public boolean equals(Object obj) 
 	{
-		//cuando dos tiles son iguales?
-		//cuando sus coordenadas son iguales ademas de su tipo y sus paredes si su tipo fuese f
+		//Two tiles are the same if their coordenates are the same and their types and walls the same (if it is f)
 		
 		boolean equals = false;
 		if ( obj != null && obj instanceof Tile) 
@@ -122,11 +121,11 @@ public class Tile extends Point
 			equals = otherTile.x == this.x && otherTile.y == this.y &&
 			       otherTile.type == this.type;
 			
-			if(equals == true) //tengo que comprobar si es flag para verificar sus paredes
+			if(equals == true) //We have to see if it is F to look the walls
 			{
 				if(otherTile.type .equals("F"))
 				{
-					//es flag tengo que comparar sus paredes
+					//It is F so we see the walls
 					equals = otherTile.isDown_wall() == this.isDown_wall() && otherTile.isLeft_wall() == this.isLeft_wall() && otherTile.isRight_wall() == this.isRight_wall() && otherTile.isUp_wall() == this.isUp_wall();
 				}
 			}

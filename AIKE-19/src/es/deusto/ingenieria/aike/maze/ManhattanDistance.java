@@ -8,7 +8,7 @@ public class ManhattanDistance extends EvaluationFunction
 
 	public double calculateG(Node nodo) 
 	{
-		//el pathcost esta relacionado con el valor de cada operador, aqui no se puede calcular, solo devolver!!!
+		//The pathcost is related to the value of every operator
 		double pathCost = nodo.getG();
 		return pathCost;
 	}
@@ -22,7 +22,7 @@ public class ManhattanDistance extends EvaluationFunction
 		int distancia = 0;
 		distancia = distanciaManhattan(currentTile, flagTile);
 		
-		//System.out.println("estoy calculando la heuristica del nodo: " + ((Board) nodo.getState().getInformation()).toString() + " y es: " + distancia);
+		//System.out.println("calculating the node heuristic: " + ((Board) nodo.getState().getInformation()).toString() + " y es: " + distancia);
 		
 		return distancia * -1;
 	}

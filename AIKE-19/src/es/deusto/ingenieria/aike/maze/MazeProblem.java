@@ -28,22 +28,22 @@ public class MazeProblem extends Problem
 		Operator operator = new CarMovement(Destination.UP);
 		operator.setCost(1);
 		this.addOperator(operator);
-		System.out.println("Se ha creado el operador UP");
+		System.out.println("The UP operator has been created");
 		
 		operator = new CarMovement(Destination.DOWN);
 		operator.setCost(1);
 		this.addOperator(operator);
-		System.out.println("Se ha creado el operador DOWN");
+		System.out.println("The DOWN operator has been created");
 		
 		operator = new CarMovement(Destination.RIGHT);
 		operator.setCost(1);
 		this.addOperator(operator);
-		System.out.println("Se ha creado el operador RIGHT");
+		System.out.println("The RIGHT operator has been created");
 		
 		operator = new CarMovement(Destination.LEFT);
 		operator.setCost(1);
 		this.addOperator(operator);
-		System.out.println("Se ha creado el operador LEFT");
+		System.out.println("The LEFT operator has been created");
 	}
 	
 	public void solve(SearchMethod searchMethod) 
@@ -70,8 +70,7 @@ public class MazeProblem extends Problem
 	
 	public boolean isFinalState(State state)
 	{
-		//cuando un estado es final?
-		//cuando la tile en la que esta el coche es de tipo F
+		//A state is final when it is F, because it is the tile where the flag is
 		System.out.println();
 		System.out.println();
 		boolean end = false;
@@ -79,7 +78,7 @@ public class MazeProblem extends Problem
 		Board board = (Board)state.getInformation();
 		Tile currentTile= board.getCar();
 		
-		System.out.println("comprobado estado final en:" + ((Board) state.getInformation()).toString());
+		System.out.println("Tested the final state in:" + ((Board) state.getInformation()).toString());
 		if(currentTile.getType().equals("F"))
 		{
 			end = true;
