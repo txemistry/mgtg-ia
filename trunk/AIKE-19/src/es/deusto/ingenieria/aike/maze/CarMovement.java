@@ -3,6 +3,9 @@ package es.deusto.ingenieria.aike.maze;
 import es.deusto.ingenieria.aike.formulation.Operator;
 import es.deusto.ingenieria.aike.formulation.State;
 
+/**
+ * @uml.dependency   supplier="es.deusto.ingenieria.aike.maze.Board"
+ */
 public class CarMovement extends Operator {
 
 	public static enum Destination 

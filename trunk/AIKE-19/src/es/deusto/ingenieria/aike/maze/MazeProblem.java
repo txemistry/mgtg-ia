@@ -12,6 +12,9 @@ import es.deusto.ingenieria.aike.maze.CarMovement.Destination;
 import es.deusto.ingenieria.ingenieria.search.Node;
 import es.deusto.ingenieria.ingenieria.search.SearchMethod;
 
+/**
+ * @uml.dependency   supplier="es.deusto.ingenieria.aike.maze.CarMovement"
+ */
 public class MazeProblem extends Problem 
 {
 	
