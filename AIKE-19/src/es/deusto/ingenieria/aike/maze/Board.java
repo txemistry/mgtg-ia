@@ -169,19 +169,9 @@ public class Board
 	
 	public Object clone() 
 	{
-		Tile[][] newBoard = new Tile[this.tiles.length][this.tiles[0].length];
-		Tile newCar = (Tile) this.car.clone(); 
-		Tile newFlag = (Tile) this.flag.clone();
-		//Double cost = this.pathCost;
-
+		//Tile newCar = (Tile) this.car.clone(); 
+		//Tile newFlag = (Tile) this.flag.clone();
 		
-		for(int i=0; i<this.tiles.length; i++) 
-		{
-			for(int j=0; j<this.tiles[i].length; j++) 
-			{
-				newBoard[i][j] = (Tile)this.tiles[i][j].clone();				
-			}
-		}
-		return new Board(this.tiles, newCar,newFlag);
+		return new Board(this.tiles, this.car,this.flag);
 	}
 }

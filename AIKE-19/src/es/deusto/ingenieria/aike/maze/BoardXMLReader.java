@@ -6,6 +6,7 @@ import org.xml.sax.SAXException;
 
 import es.deusto.ingenieria.aike.xml.InformationXMLReader;
 
+
 public class BoardXMLReader extends InformationXMLReader 
 {
 
