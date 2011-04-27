@@ -11,7 +11,7 @@ public class Digit extends Variable<Integer>
 	
 	public Digit(int id, List<Integer> domainValues) 
 	{
-		//Each digit has a differet character, so it will be used as a name
+		//Each digit has a different character, so it will be used as a name
 		super(String.valueOf(id), domainValues);
 	}
 	
