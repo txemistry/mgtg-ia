@@ -20,7 +20,7 @@ public class MainProgram {
 			int maxMinutes = initialParameters.get(2);
 			
 			System.out.println("multiplier: " + multiplier);
-			System.out.println("constatnt: " + constant);
+			System.out.println("constant: " + constant);
 			System.out.println("maxMinutes: " + maxMinutes);
 			System.out.println();
 			
