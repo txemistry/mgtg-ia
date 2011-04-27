@@ -7,7 +7,9 @@ import java.util.GregorianCalendar;
 import java.util.List;
 
 import es.deusto.ingenieria.aike.constraints.Distinct;
+import es.deusto.ingenieria.aike.constraints.FinalConstraint;
 import es.deusto.ingenieria.aike.constraints.MaxMinutes;
+import es.deusto.ingenieria.aike.constraints.MaxSeconds;
 import es.deusto.ingenieria.aike.csp.algorithm.CSPAlgorithm;
 import es.deusto.ingenieria.aike.csp.formulation.CSPproblem;
 import es.deusto.ingenieria.aike.csp.formulation.Variable;
@@ -42,7 +44,7 @@ public class EquationProblem extends CSPproblem<Integer>
 
 	}
 	
-	private void createConstraints()  //AUN NO SABEMOS
+	private void createConstraints()
 	{
 		
 		//creacion de las DISTINCT
@@ -55,6 +57,8 @@ public class EquationProblem extends CSPproblem<Integer>
 			//ahora le tenemos que añadir a la variable i esta constraint
 			this.getVariables().get(i).addConstraint(distinct);
 		}
+		
+		//MAXMINUTES
 		List<Variable<Integer>> constVariables = new ArrayList<Variable<Integer>>();
 		constVariables.add(this.getVariables().get(0));
 		MaxMinutes max = new MaxMinutes(constVariables, "AMinutes");
@@ -63,6 +67,25 @@ public class EquationProblem extends CSPproblem<Integer>
 		constVariables.add(this.getVariables().get(4));
 		max = new MaxMinutes(constVariables, "EMinutes");
 		this.getVariables().get(4).addConstraint(max);
+		
+		//MAXSECONDS
+		constVariables.clear();
+		constVariables.add(this.getVariables().get(2));
+		MaxSeconds maxSec = new MaxSeconds(constVariables, "CSeconds");
+		this.getVariables().get(2).addConstraint(maxSec);
+		constVariables.clear();
+		constVariables.add(this.getVariables().get(6));
+		maxSec = new MaxSeconds(constVariables, "GSeconds");
+		this.getVariables().get(6).addConstraint(maxSec);
+		
+		//constraint final
+		FinalConstraint test = new FinalConstraint(this.getVariables(), "finalConstraint");
+		for (Variable<Integer> aux : this.getVariables()) 
+		{
+			aux.addConstraint(test);			
+		}
+		
+		
 		
 		
 		
@@ -88,12 +111,12 @@ public class EquationProblem extends CSPproblem<Integer>
 		
 		System.out.println("A B : C D * " + EquationProblem.multiplier + " = E F : G " + EquationProblem.constant);
 		
-		for (int i = 1; i < 8; i++)
+		for (int i = 0; i < 7; i++)
 		{
 			System.out.print(this.getVariables().get(i).getValue() + " ");
-			if((i == 2)||(i==6))
+			if((i == 1)||(i==5))
 				System.out.print(": ");
-			if(i == 4)
+			if(i == 3)
 				System.out.print("* " + EquationProblem.multiplier + " = ");
 		}
 		System.out.print(EquationProblem.constant);
@@ -120,7 +143,7 @@ public class EquationProblem extends CSPproblem<Integer>
 		long hours = minutes / 60;
 		minutes %= 60;
 		
-		String time = "\n* Serach lasts: ";
+		String time = "\n* Search lasts: ";
 		time += (hours > 0) ? hours + " h " : " ";
 		time += (minutes > 0) ? minutes + " m " : " ";
 		time += (seconds > 0) ? seconds + "s " : " ";
