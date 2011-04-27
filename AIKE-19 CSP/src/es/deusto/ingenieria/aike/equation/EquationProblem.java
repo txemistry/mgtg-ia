@@ -47,7 +47,7 @@ public class EquationProblem extends CSPproblem<Integer>
 	private void createConstraints()
 	{
 		
-		//creacion de las DISTINCT
+		//
 		//nos creamos una lista con las variables asociadas a la restriccion
 		for(int i = 0; i < 7; i++)
 		{
