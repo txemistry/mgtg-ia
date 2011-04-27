@@ -11,7 +11,7 @@ public class MainProgram {
 	public static void main(String[] args) {
 		try 
 		{					
-			InformationXMLReader entornoSAXParser = new XMLReader("data/equationMinSec-5.xml");
+			InformationXMLReader entornoSAXParser = new XMLReader("data/equationMinSec-1.xml");
 			List<Integer> initialParameters = (List<Integer>) entornoSAXParser.getInformation();
 			
 			int multiplier = initialParameters.get(0);
@@ -27,23 +27,6 @@ public class MainProgram {
 			NodeConsistency consistencyMaker = new NodeConsistency();
 			consistencyMaker.makeConsistent(problem.getVariables());
 			
-			
-			
-		/*	for(int i = 0; i < problem.getVariables().size(); i++)
-			{
-				List<Integer> dominio = problem.getVariables().get(i).getDomain();
-				
-				System.out.println("Este deberia ser el dominio de la variable " + i);
-				System.out.println("Las restricciones de esta variable despues de haberlas borrado supuestamente es:  " + problem.getVariables().get(i).getConstraints().size());
-				for(int j = 0; j < dominio.size(); j++)
-				{
-					System.out.print(dominio.get(j)+ "   ");
-				}
-				System.out.println();
-				System.out.println();
-			}
-			
-			System.out.println("\nAHORA YA PODRIA LLAMAR AL METODOD DE BACKTRACKING"); */
 			
 			
 			BackTracking<Integer> backTracking = new BackTracking<Integer>();			
