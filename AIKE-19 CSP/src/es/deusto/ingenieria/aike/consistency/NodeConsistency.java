@@ -1,8 +1,6 @@
 package es.deusto.ingenieria.aike.consistency;
 
-import java.util.ArrayList;
 import java.util.List;
-
 
 import es.deusto.ingenieria.aike.csp.formulation.Constraint;
 import es.deusto.ingenieria.aike.csp.formulation.Variable;
