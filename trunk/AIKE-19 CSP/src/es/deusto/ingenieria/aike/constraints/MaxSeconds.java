@@ -4,7 +4,6 @@ import java.util.List;
 
 import es.deusto.ingenieria.aike.csp.formulation.Constraint;
 import es.deusto.ingenieria.aike.csp.formulation.Variable;
-import es.deusto.ingenieria.aike.equation.EquationProblem;
 
 public class MaxSeconds extends Constraint<Integer> 
 {

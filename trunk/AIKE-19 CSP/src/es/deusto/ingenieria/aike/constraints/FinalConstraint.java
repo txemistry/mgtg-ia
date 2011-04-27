@@ -18,7 +18,7 @@ public class FinalConstraint extends Constraint<Integer>
 	public boolean isSatisfied(Variable<Integer> variable, Integer value) 
 	{
 		int cont = 0;
-		for(Variable varAux:this.getVariables())
+		for(Variable<Integer> varAux:this.getVariables())
 		{
 			if(varAux.hasValue())
 				cont ++;

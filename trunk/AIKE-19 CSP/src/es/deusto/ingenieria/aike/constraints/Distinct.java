@@ -1,6 +1,5 @@
 package es.deusto.ingenieria.aike.constraints;
 
-import java.awt.Point;
 import java.util.List;
 
 import es.deusto.ingenieria.aike.csp.formulation.Constraint;

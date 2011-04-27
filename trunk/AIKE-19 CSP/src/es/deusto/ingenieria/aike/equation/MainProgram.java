@@ -12,6 +12,7 @@ public class MainProgram {
 		try 
 		{					
 			InformationXMLReader entornoSAXParser = new XMLReader("data/equationMinSec-1.xml");
+			@SuppressWarnings("unchecked")
 			List<Integer> initialParameters = (List<Integer>) entornoSAXParser.getInformation();
 			
 			int multiplier = initialParameters.get(0);
