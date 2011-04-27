@@ -12,6 +12,10 @@ import es.deusto.ingenieria.aike.xml.InformationXMLReader;
 public class XMLReader extends InformationXMLReader 
 {
 
+	/**
+	 * @uml.property  name="myParameters"
+	 * @uml.associationEnd  multiplicity="(0 -1)" elementType="java.lang.Integer"
+	 */
 	private List<Integer> myParameters;
 	
 	public XMLReader(String xmlFile) 

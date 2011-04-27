@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" name="Dependencies1" size="1345,1768" id="." metadata="uml2-1.0" initialized="true" zoom="0.75" scrolledX="92" tag="10" key="32303037303533312D31302041494B452D313920435350">
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.1/@sourceConnections.4" name="XMLReader" location="268,1395" size="213,43" id="es.deusto.ingenieria.aike.equation/XMLReader">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="es.deusto.ingenieria.aike.equation/XMLReader-Standard::Derive->es.deusto.ingenieria.aike.xml/InformationXMLReader" source="//@children.0" target="//@children.2" targetEnd="//@children.0/@sourceConnections.0/@children.2" label="//@children.0/@sourceConnections.0/@children.0" sourceEnd="//@children.0/@sourceConnections.0/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Derive»" size="49,13" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="45,43" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="170,0"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="es.deusto.ingenieria.aike.xml/InformationXMLReader&lt;-es.deusto.ingenieria.aike.equation/XMLReader" source="//@children.0" target="//@children.2" targetEnd="//@children.0/@sourceConnections.1/@children.1" sourceEnd="//@children.0/@sourceConnections.1/@children.0" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="25,43" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="150,0"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="MainProgram" location="45,1216" size="213,43" id="es.deusto.ingenieria.aike.equation/MainProgram">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="es.deusto.ingenieria.aike.equation/MainProgram-Standard::Instantiate->es.deusto.ingenieria.aike.csp.algorithm/BackTracking*es.deusto.ingenieria.aike.equation/MainProgram-Soyatec::Import->es.deusto.ingenieria.aike.csp.algorithm/BackTracking" source="//@children.1" target="//@children.3" targetEnd="//@children.1/@sourceConnections.0/@children.2" label="//@children.1/@sourceConnections.0/@children.0" sourceEnd="//@children.1/@sourceConnections.0/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Instantiate, Import»" location="111,719" size="114,13" automaticRelocationAllowed="false" locationOnWireFromSource="93.0" distanceFromWire="-16.0" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="108,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="103,43"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="es.deusto.ingenieria.aike.equation/MainProgram-Soyatec::Import->es.deusto.ingenieria.aike.xml/InformationXMLReader*es.deusto.ingenieria.aike.equation/MainProgram-Standard::Call->es.deusto.ingenieria.aike.xml/InformationXMLReader" source="//@children.1" target="//@children.2" targetEnd="//@children.1/@sourceConnections.1/@children.2" label="//@children.1/@sourceConnections.1/@children.0" sourceEnd="//@children.1/@sourceConnections.1/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Call, Import»" location="143,1454" size="75,13" automaticRelocationAllowed="false" locationOnWireFromSource="41.0" distanceFromWire="-20.0" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="155,43" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="57,0"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="es.deusto.ingenieria.aike.equation/MainProgram-Soyatec::Import->es.deusto.ingenieria.aike.equation/EquationProblem*es.deusto.ingenieria.aike.equation/MainProgram-Standard::Instantiate->es.deusto.ingenieria.aike.equation/EquationProblem*es.deusto.ingenieria.aike.equation/MainProgram-Standard::Call->es.deusto.ingenieria.aike.equation/EquationProblem" source="//@children.1" target="//@children.5" targetEnd="//@children.1/@sourceConnections.2/@children.2" label="//@children.1/@sourceConnections.2/@children.0" sourceEnd="//@children.1/@sourceConnections.2/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Instantiate, Call, Import»" size="140,13" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="213,10" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="10,43"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" id="es.deusto.ingenieria.aike.equation/MainProgram-Standard::Instantiate->es.deusto.ingenieria.aike.consistency/NodeConsistency*es.deusto.ingenieria.aike.equation/MainProgram-Standard::Call->es.deusto.ingenieria.aike.consistency/NodeConsistency*es.deusto.ingenieria.aike.equation/MainProgram-Soyatec::Import->es.deusto.ingenieria.aike.consistency/NodeConsistency" source="//@children.1" target="//@children.8" targetEnd="//@children.1/@sourceConnections.3/@children.2" label="//@children.1/@sourceConnections.3/@children.0" sourceEnd="//@children.1/@sourceConnections.3/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Instantiate, Call, Import»" location="341,1319" size="140,13" automaticRelocationAllowed="false" locationOnWireFromSource="30.0" distanceFromWire="163.0" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="203,43" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,28"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" id="es.deusto.ingenieria.aike.equation/MainProgram-Standard::Instantiate->es.deusto.ingenieria.aike.equation/XMLReader" source="//@children.1" target="//@children.0" targetEnd="//@children.1/@sourceConnections.4/@children.2" label="//@children.1/@sourceConnections.4/@children.0" sourceEnd="//@children.1/@sourceConnections.4/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Instantiate»" location="225,1364" size="73,13" automaticRelocationAllowed="false" locationOnWireFromSource="39.0" distanceFromWire="29.000000000000007" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="187,43" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,10"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.0/@sourceConnections.0 //@children.1/@sourceConnections.1 //@children.0/@sourceConnections.1" name="InformationXMLReader" location="143,1560" size="216,43" id="es.deusto.ingenieria.aike.xml/InformationXMLReader">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" id="org.xml.sax.helpers/DefaultHandler&lt;-es.deusto.ingenieria.aike.xml/InformationXMLReader" source="//@children.2" target="//@children.16" targetEnd="//@children.2/@sourceConnections.0/@children.1" sourceEnd="//@children.2/@sourceConnections.0/@children.0" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="216,19" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,19"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.1/@sourceConnections.0" name="BackTracking" location="50,379" size="238,43" id="es.deusto.ingenieria.aike.csp.algorithm/BackTracking">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="es.deusto.ingenieria.aike.csp.algorithm/CSPAlgorithm&lt;-es.deusto.ingenieria.aike.csp.algorithm/BackTracking" source="//@children.3" target="//@children.9" targetEnd="//@children.3/@sourceConnections.0/@children.1" sourceEnd="//@children.3/@sourceConnections.0/@children.0" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="119,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="119,43"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.5/@sourceConnections.5" name="FinalConstraint" location="1484,780" size="225,43" id="es.deusto.ingenieria.aike.constraints/FinalConstraint">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="es.deusto.ingenieria.aike.constraints/FinalConstraint-Soyatec::Import->es.deusto.ingenieria.aike.csp.formulation/Variable*es.deusto.ingenieria.aike.constraints/FinalConstraint-Standard::Call->es.deusto.ingenieria.aike.csp.formulation/Variable" source="//@children.4" target="//@children.13" targetEnd="//@children.4/@sourceConnections.0/@children.2" label="//@children.4/@sourceConnections.0/@children.0" sourceEnd="//@children.4/@sourceConnections.0/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Call, Import»" location="1237,808" size="75,13" automaticRelocationAllowed="false" locationOnWireFromSource="-44.0" distanceFromWire="2.9999999999999623" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,33" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="239,0"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="es.deusto.ingenieria.aike.csp.formulation/Constraint&lt;-es.deusto.ingenieria.aike.constraints/FinalConstraint" source="//@children.4" target="//@children.12/@sourceConnections.2" targetEnd="//@children.4/@sourceConnections.1/@children.1" sourceEnd="//@children.4/@sourceConnections.1/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="112,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="142,0"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" id="es.deusto.ingenieria.aike.constraints/FinalConstraint-Soyatec::Access->es.deusto.ingenieria.aike.equation/EquationProblem" source="//@children.4" target="//@children.5" targetEnd="//@children.4/@sourceConnections.2/@children.2" label="//@children.4/@sourceConnections.2/@children.0" sourceEnd="//@children.4/@sourceConnections.2/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Access»" size="52,13" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,10" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="189,43"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" id="es.deusto.ingenieria.aike.constraints/FinalConstraint-Standard::Derive->es.deusto.ingenieria.aike.csp.formulation/Constraint" source="//@children.4" target="//@children.14" targetEnd="//@children.4/@sourceConnections.3/@children.2" label="//@children.4/@sourceConnections.3/@children.0" sourceEnd="//@children.4/@sourceConnections.3/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Derive»" size="49,13" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="37,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="239,43"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.1/@sourceConnections.2 //@children.4/@sourceConnections.2 //@children.12/@sourceConnections.3 //@children.10/@sourceConnections.3" name="EquationProblem" location="451,143" size="213,43" id="es.deusto.ingenieria.aike.equation/EquationProblem">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="es.deusto.ingenieria.aike.equation/EquationProblem-Standard::Derive->es.deusto.ingenieria.aike.csp.formulation/CSPproblem" source="//@children.5" target="//@children.15" targetEnd="//@children.5/@sourceConnections.0/@children.2" label="//@children.5/@sourceConnections.0/@children.0" sourceEnd="//@children.5/@sourceConnections.0/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Derive»" location="508,104" size="49,13" automaticRelocationAllowed="false" locationOnWireFromSource="-3.0" distanceFromWire="23.999999999999996" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="106,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="124,43"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="es.deusto.ingenieria.aike.csp.formulation/CSPproblem&lt;-es.deusto.ingenieria.aike.equation/EquationProblem" source="//@children.5" target="//@children.15" targetEnd="//@children.5/@sourceConnections.1/@children.1" sourceEnd="//@children.5/@sourceConnections.1/@children.0" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="126,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="144,43"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="es.deusto.ingenieria.aike.equation/EquationProblem-Standard::Instantiate->es.deusto.ingenieria.aike.equation/Digit" source="//@children.5" target="//@children.11" targetEnd="//@children.5/@sourceConnections.2/@children.2" label="//@children.5/@sourceConnections.2/@children.0" sourceEnd="//@children.5/@sourceConnections.2/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Instantiate»" location="577,899" size="73,13" automaticRelocationAllowed="false" locationOnWireFromSource="274.0" distanceFromWire="28.999999999999748" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="135,43" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="77,0"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="es.deusto.ingenieria.aike.equation/EquationProblem-Soyatec::Import->es.deusto.ingenieria.aike.constraints/Distinct*es.deusto.ingenieria.aike.equation/EquationProblem-Standard::Instantiate->es.deusto.ingenieria.aike.constraints/Distinct" source="//@children.5" target="//@children.12" targetEnd="//@children.5/@sourceConnections.3/@children.2" label="//@children.5/@sourceConnections.3/@children.0" sourceEnd="//@children.5/@sourceConnections.3/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Instantiate, Import»" location="680,613" size="114,13" automaticRelocationAllowed="false" locationOnWireFromSource="215.0" distanceFromWire="84.0" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="203,43" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,10"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" id="es.deusto.ingenieria.aike.equation/EquationProblem-Standard::Instantiate->es.deusto.ingenieria.aike.constraints/MaxSeconds*es.deusto.ingenieria.aike.equation/EquationProblem-Soyatec::Import->es.deusto.ingenieria.aike.constraints/MaxSeconds" source="//@children.5" target="//@children.6" targetEnd="//@children.5/@sourceConnections.4/@children.2" label="//@children.5/@sourceConnections.4/@children.0" sourceEnd="//@children.5/@sourceConnections.4/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Instantiate, Import»" location="663,794" size="114,13" automaticRelocationAllowed="false" locationOnWireFromSource="358.0" distanceFromWire="112.0" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="157,43" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,10"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" id="es.deusto.ingenieria.aike.equation/EquationProblem-Soyatec::Import->es.deusto.ingenieria.aike.constraints/FinalConstraint*es.deusto.ingenieria.aike.equation/EquationProblem-Standard::Instantiate->es.deusto.ingenieria.aike.constraints/FinalConstraint" source="//@children.5" target="//@children.4" targetEnd="//@children.5/@sourceConnections.5/@children.2" label="//@children.5/@sourceConnections.5/@children.0" sourceEnd="//@children.5/@sourceConnections.5/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Instantiate, Import»" size="114,13" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="173,43" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,24"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" id="es.deusto.ingenieria.aike.equation/EquationProblem-Soyatec::Import->es.deusto.ingenieria.aike.csp.formulation/Variable*es.deusto.ingenieria.aike.equation/EquationProblem-Standard::Call->es.deusto.ingenieria.aike.csp.formulation/Variable" source="//@children.5" target="//@children.13" targetEnd="//@children.5/@sourceConnections.6/@children.2" label="//@children.5/@sourceConnections.6/@children.0" sourceEnd="//@children.5/@sourceConnections.6/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Call, Import»" location="606,839" size="75,13" automaticRelocationAllowed="false" locationOnWireFromSource="328.0" distanceFromWire="79.99999999999991" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="113,43" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,10"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" id="es.deusto.ingenieria.aike.equation/EquationProblem-Standard::Call->es.deusto.ingenieria.aike.csp.algorithm/CSPAlgorithm*es.deusto.ingenieria.aike.equation/EquationProblem-Soyatec::Import->es.deusto.ingenieria.aike.csp.algorithm/CSPAlgorithm" source="//@children.5" target="//@children.9" targetEnd="//@children.5/@sourceConnections.7/@children.2" label="//@children.5/@sourceConnections.7/@children.0" sourceEnd="//@children.5/@sourceConnections.7/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Call, Import»" location="357,141" size="75,13" automaticRelocationAllowed="false" locationOnWireFromSource="-80.00000000000001" distanceFromWire="25.999999999999947" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,19" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="238,10"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" id="es.deusto.ingenieria.aike.equation/EquationProblem-Soyatec::Import->es.deusto.ingenieria.aike.constraints/MaxMinutes*es.deusto.ingenieria.aike.equation/EquationProblem-Standard::Instantiate->es.deusto.ingenieria.aike.constraints/MaxMinutes" source="//@children.5" target="//@children.10" targetEnd="//@children.5/@sourceConnections.8/@children.2" label="//@children.5/@sourceConnections.8/@children.0" sourceEnd="//@children.5/@sourceConnections.8/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Instantiate, Import»" location="645,300" size="114,13" fontInfo="Sans-8-0" automaticRelocationAllowed="false" locationOnWireFromSource="-52.99999999999999" distanceFromWire="18.00000000000004" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="213,28" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,10"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.5/@sourceConnections.4" name="MaxSeconds" location="1199,690" size="225,43" id="es.deusto.ingenieria.aike.constraints/MaxSeconds">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="es.deusto.ingenieria.aike.constraints/MaxSeconds-Standard::Derive->es.deusto.ingenieria.aike.csp.formulation/Constraint" source="//@children.6" target="//@children.14" targetEnd="//@children.6/@sourceConnections.0/@children.2" label="//@children.6/@sourceConnections.0/@children.0" sourceEnd="//@children.6/@sourceConnections.0/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Derive»" location="1167,509" size="49,13" automaticRelocationAllowed="false" locationOnWireFromSource="7.999999999999999" distanceFromWire="25.000000000000004" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="19,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="228,43"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" id="es.deusto.ingenieria.aike.constraints/MaxSeconds-Soyatec::Import->es.deusto.ingenieria.aike.csp.formulation/Variable" source="//@children.6" target="//@children.13" targetEnd="//@children.6/@sourceConnections.1/@children.2" label="//@children.6/@sourceConnections.1/@children.0" sourceEnd="//@children.6/@sourceConnections.1/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Import»" location="1045,711" size="49,13" automaticRelocationAllowed="false" locationOnWireFromSource="-4.0" distanceFromWire="-5.0" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,33" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="194,0"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="es.deusto.ingenieria.aike.csp.formulation/Constraint&lt;-es.deusto.ingenieria.aike.constraints/MaxSeconds" source="//@children.6" target="//@children.12/@sourceConnections.2" targetEnd="//@children.6/@sourceConnections.2/@children.1" sourceEnd="//@children.6/@sourceConnections.2/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="112,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="133,43"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+  </children>
+  <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.8/@sourceConnections.2 //@children.8/@sourceConnections.3" name="IConstraintPropagation" location="1050,885" size="229,43" id="es.deusto.ingenieria.aike.consistency/IConstraintPropagation">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="es.deusto.ingenieria.aike.consistency/IConstraintPropagation-Soyatec::Import->es.deusto.ingenieria.aike.csp.formulation/Variable" source="//@children.7" target="//@children.13" targetEnd="//@children.7/@sourceConnections.0/@children.2" label="//@children.7/@sourceConnections.0/@children.0" sourceEnd="//@children.7/@sourceConnections.0/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Import»" location="986,918" size="49,13" automaticRelocationAllowed="false" locationOnWireFromSource="3.0" distanceFromWire="30.999999999999996" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,10" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="239,43"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.1/@sourceConnections.3" name="NodeConsistency" location="1184,1304" size="229,43" id="es.deusto.ingenieria.aike.consistency/NodeConsistency">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" id="es.deusto.ingenieria.aike.consistency/NodeConsistency-Standard::Call->es.deusto.ingenieria.aike.csp.formulation/Constraint*es.deusto.ingenieria.aike.consistency/NodeConsistency-Soyatec::Import->es.deusto.ingenieria.aike.csp.formulation/Constraint" source="//@children.8" target="//@children.14" targetEnd="//@children.8/@sourceConnections.0/@children.2" label="//@children.8/@sourceConnections.0/@children.0" sourceEnd="//@children.8/@sourceConnections.0/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Call, Import»" location="1289,315" size="75,13" automaticRelocationAllowed="false" locationOnWireFromSource="503.0" distanceFromWire="121.0" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="228,20" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="248,9"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" id="es.deusto.ingenieria.aike.consistency/NodeConsistency-Standard::Call->es.deusto.ingenieria.aike.csp.formulation/Variable*es.deusto.ingenieria.aike.consistency/NodeConsistency-Soyatec::Import->es.deusto.ingenieria.aike.csp.formulation/Variable" source="//@children.8" target="//@children.13" targetEnd="//@children.8/@sourceConnections.1/@children.2" label="//@children.8/@sourceConnections.1/@children.0" sourceEnd="//@children.8/@sourceConnections.1/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Call, Import»" size="75,13" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,18" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="179,42"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" id="es.deusto.ingenieria.aike.consistency/IConstraintPropagation&lt;-es.deusto.ingenieria.aike.consistency/NodeConsistency" source="//@children.8" target="//@children.7" targetEnd="//@children.8/@sourceConnections.2/@children.1" sourceEnd="//@children.8/@sourceConnections.2/@children.0" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="48,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="181,43"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" id="es.deusto.ingenieria.aike.consistency/NodeConsistency-Soyatec::Implement->es.deusto.ingenieria.aike.consistency/IConstraintPropagation" source="//@children.8" target="//@children.7" targetEnd="//@children.8/@sourceConnections.3/@children.2" label="//@children.8/@sourceConnections.3/@children.0" sourceEnd="//@children.8/@sourceConnections.3/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Implement»" size="72,13" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="124,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="228,23"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+  </children>
+  <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.5/@sourceConnections.7 //@children.3/@sourceConnections.0" name="CSPAlgorithm" location="50,286" size="238,43" id="es.deusto.ingenieria.aike.csp.algorithm/CSPAlgorithm">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.5/@sourceConnections.8" name="MaxMinutes" location="705,540" size="225,43" id="es.deusto.ingenieria.aike.constraints/MaxMinutes">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="es.deusto.ingenieria.aike.constraints/MaxMinutes-Soyatec::Import->es.deusto.ingenieria.aike.csp.formulation/Variable" source="//@children.10" target="//@children.13" targetEnd="//@children.10/@sourceConnections.0/@children.2" label="//@children.10/@sourceConnections.0/@children.0" sourceEnd="//@children.10/@sourceConnections.0/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Import»" size="49,13" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="129,43" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="95,0"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="es.deusto.ingenieria.aike.constraints/MaxMinutes-Standard::Derive->es.deusto.ingenieria.aike.csp.formulation/Constraint" source="//@children.10" target="//@children.14" targetEnd="//@children.10/@sourceConnections.1/@children.2" label="//@children.10/@sourceConnections.1/@children.0" sourceEnd="//@children.10/@sourceConnections.1/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Derive»" size="49,13" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="225,10" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="10,43"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" id="es.deusto.ingenieria.aike.csp.formulation/Constraint&lt;-es.deusto.ingenieria.aike.constraints/MaxMinutes" source="//@children.10" target="//@children.12/@sourceConnections.2" targetEnd="//@children.10/@sourceConnections.2/@children.1" sourceEnd="//@children.10/@sourceConnections.2/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="197,42" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="-557,-120"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" id="es.deusto.ingenieria.aike.constraints/MaxMinutes-Soyatec::Access->es.deusto.ingenieria.aike.equation/EquationProblem" source="//@children.10" target="//@children.5" targetEnd="//@children.10/@sourceConnections.3/@children.2" label="//@children.10/@sourceConnections.3/@children.0" sourceEnd="//@children.10/@sourceConnections.3/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Access»" location="687,143" size="52,13" automaticRelocationAllowed="false" locationOnWireFromSource="199.0" distanceFromWire="22.000000000000167" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="31,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="213,13"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.5/@sourceConnections.2" name="Digit" location="509,1079" size="213,43" id="es.deusto.ingenieria.aike.equation/Digit">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" id="es.deusto.ingenieria.aike.equation/Digit-Standard::Derive->es.deusto.ingenieria.aike.csp.formulation/Variable" source="//@children.11" target="//@children.13" targetEnd="//@children.11/@sourceConnections.0/@children.2" label="//@children.11/@sourceConnections.0/@children.0" sourceEnd="//@children.11/@sourceConnections.0/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Derive»" location="645,869" size="49,13" automaticRelocationAllowed="false" locationOnWireFromSource="99.0" distanceFromWire="-105.0" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="55,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,31"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" id="es.deusto.ingenieria.aike.csp.formulation/Variable&lt;-es.deusto.ingenieria.aike.equation/Digit" source="//@children.11" target="//@children.13" targetEnd="//@children.11/@sourceConnections.1/@children.1" sourceEnd="//@children.11/@sourceConnections.1/@children.0" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="108,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="126,43"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.5/@sourceConnections.3" name="Distinct" location="945,614" size="225,43" id="es.deusto.ingenieria.aike.constraints/Distinct">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="es.deusto.ingenieria.aike.constraints/Distinct-Standard::Derive->es.deusto.ingenieria.aike.csp.formulation/Constraint" source="//@children.12" target="//@children.14" targetEnd="//@children.12/@sourceConnections.0/@children.2" label="//@children.12/@sourceConnections.0/@children.0" sourceEnd="//@children.12/@sourceConnections.0/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Derive»" location="1031,434" size="49,13" automaticRelocationAllowed="false" locationOnWireFromSource="45.0" distanceFromWire="22.00000000000001" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="134,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="89,43"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="es.deusto.ingenieria.aike.constraints/Distinct-Soyatec::Import->es.deusto.ingenieria.aike.csp.formulation/Variable" source="//@children.12" target="//@children.13" targetEnd="//@children.12/@sourceConnections.1/@children.2" label="//@children.12/@sourceConnections.1/@children.0" sourceEnd="//@children.12/@sourceConnections.1/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Import»" size="49,13" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="21,43" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="227,0"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" targetConnections="//@children.6/@sourceConnections.2 //@children.4/@sourceConnections.1 //@children.10/@sourceConnections.2" autoLocated="true" id="es.deusto.ingenieria.aike.csp.formulation/Constraint&lt;-es.deusto.ingenieria.aike.constraints/Distinct" source="//@children.12" target="//@children.14" targetEnd="//@children.12/@sourceConnections.2/@children.1" sourceEnd="//@children.12/@sourceConnections.2/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="112,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="124,43" anchorKind="FixedAtEdge"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" id="es.deusto.ingenieria.aike.constraints/Distinct-Soyatec::Access->es.deusto.ingenieria.aike.equation/EquationProblem" source="//@children.12" target="//@children.5" targetEnd="//@children.12/@sourceConnections.3/@children.2" label="//@children.12/@sourceConnections.3/@children.0" sourceEnd="//@children.12/@sourceConnections.3/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Access»" size="52,13" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="5,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="192,0"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.10/@sourceConnections.0 //@children.7/@sourceConnections.0 //@children.5/@sourceConnections.6 //@children.4/@sourceConnections.0 //@children.12/@sourceConnections.1 //@children.11/@sourceConnections.1 //@children.6/@sourceConnections.1 //@children.11/@sourceConnections.0 //@children.8/@sourceConnections.1" name="Variable" location="739,840" size="249,43" id="es.deusto.ingenieria.aike.csp.formulation/Variable">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.6/@sourceConnections.0 //@children.4/@sourceConnections.3 //@children.10/@sourceConnections.1 //@children.12/@sourceConnections.0 //@children.12/@sourceConnections.2 //@children.8/@sourceConnections.0" name="Constraint" location="990,315" size="249,43" id="es.deusto.ingenieria.aike.csp.formulation/Constraint">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.5/@sourceConnections.0 //@children.5/@sourceConnections.1" name="CSPproblem" location="433,30" size="249,43" id="es.deusto.ingenieria.aike.csp.formulation/CSPproblem">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.2/@sourceConnections.0" name="DefaultHandler" location="480,1581" size="157,43" id="org.xml.sax.helpers/DefaultHandler">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+  </children>
+  <diagramOptions xsi:type="options:ClassDiagramOptions" interactive="false" level="-1" properties="libraryFilter=aike_csp.jar,aike_formulation.jar,;ModelFrozen=true;ComputedContent=true;displayOptions=1;open=es.deusto.ingenieria.aike.constraints/MaxMinutes,es.deusto.ingenieria.aike.equation/MainProgram,es.deusto.ingenieria.aike.constraints/FinalConstraint,es.deusto.ingenieria.aike.csp.algorithm/BackTracking,es.deusto.ingenieria.aike.csp.formulation/Variable,es.deusto.ingenieria.aike.consistency/IConstraintPropagation,es.deusto.ingenieria.aike.equation/Digit,es.deusto.ingenieria.aike.consistency/NodeConsistency,es.deusto.ingenieria.aike.xml/InformationXMLReader,es.deusto.ingenieria.aike.equation/XMLReader,es.deusto.ingenieria.aike.csp.formulation/CSPproblem,es.deusto.ingenieria.aike.csp.formulation/Constraint,es.deusto.ingenieria.aike.csp.algorithm/CSPAlgorithm,es.deusto.ingenieria.aike.constraints/MaxSeconds,es.deusto.ingenieria.aike.equation/EquationProblem,es.deusto.ingenieria.aike.constraints/Distinct;Product=eDepend;link=es.deusto.ingenieria.aike.constraints/MaxMinutes-Soyatec::Import->es.deusto.ingenieria.aike.csp.formulation/Variable,es.deusto.ingenieria.aike.equation/XMLReader-Standard::Derive->es.deusto.ingenieria.aike.xml/InformationXMLReader,es.deusto.ingenieria.aike.constraints/MaxSeconds-Standard::Derive->es.deusto.ingenieria.aike.csp.formulation/Constraint,es.deusto.ingenieria.aike.consistency/IConstraintPropagation-Soyatec::Import->es.deusto.ingenieria.aike.csp.formulation/Variable,es.deusto.ingenieria.aike.consistency/NodeConsistency-Standard::Call->es.deusto.ingenieria.aike.csp.formulation/Constraint,es.deusto.ingenieria.aike.equation/MainProgram-Standard::Instantiate->es.deusto.ingenieria.aike.csp.algorithm/BackTracking,es.deusto.ingenieria.aike.consistency/NodeConsistency-Soyatec::Import->es.deusto.ingenieria.aike.csp.formulation/Constraint,es.deusto.ingenieria.aike.equation/EquationProblem-Standard::Derive->es.deusto.ingenieria.aike.csp.formulation/CSPproblem,es.deusto.ingenieria.aike.consistency/NodeConsistency-Standard::Call->es.deusto.ingenieria.aike.csp.formulation/Variable,es.deusto.ingenieria.aike.equation/MainProgram-Soyatec::Import->es.deusto.ingenieria.aike.xml/InformationXMLReader,es.deusto.ingenieria.aike.equation/MainProgram-Soyatec::Import->es.deusto.ingenieria.aike.csp.algorithm/BackTracking,es.deusto.ingenieria.aike.equation/EquationProblem-Soyatec::Import->es.deusto.ingenieria.aike.csp.formulation/Variable,es.deusto.ingenieria.aike.consistency/NodeConsistency-Soyatec::Import->es.deusto.ingenieria.aike.csp.formulation/Variable,es.deusto.ingenieria.aike.constraints/FinalConstraint-Standard::Derive->es.deusto.ingenieria.aike.csp.formulation/Constraint,es.deusto.ingenieria.aike.constraints/MaxSeconds-Soyatec::Import->es.deusto.ingenieria.aike.csp.formulation/Variable,es.deusto.ingenieria.aike.equation/EquationProblem-Standard::Call->es.deusto.ingenieria.aike.csp.algorithm/CSPAlgorithm,es.deusto.ingenieria.aike.equation/MainProgram-Standard::Call->es.deusto.ingenieria.aike.xml/InformationXMLReader,es.deusto.ingenieria.aike.equation/Digit-Standard::Derive->es.deusto.ingenieria.aike.csp.formulation/Variable,es.deusto.ingenieria.aike.constraints/MaxMinutes-Standard::Derive->es.deusto.ingenieria.aike.csp.formulation/Constraint,es.deusto.ingenieria.aike.constraints/FinalConstraint-Soyatec::Import->es.deusto.ingenieria.aike.csp.formulation/Variable,es.deusto.ingenieria.aike.equation/EquationProblem-Standard::Call->es.deusto.ingenieria.aike.csp.formulation/Variable,es.deusto.ingenieria.aike.constraints/Distinct-Standard::Derive->es.deusto.ingenieria.aike.csp.formulation/Constraint,es.deusto.ingenieria.aike.constraints/FinalConstraint-Standard::Call->es.deusto.ingenieria.aike.csp.formulation/Variable,es.deusto.ingenieria.aike.constraints/Distinct-Soyatec::Import->es.deusto.ingenieria.aike.csp.formulation/Variable,es.deusto.ingenieria.aike.equation/EquationProblem-Soyatec::Import->es.deusto.ingenieria.aike.csp.algorithm/CSPAlgorithm;dependencyFilter=Standard::Derive,Soyatec::Implement,Standard::Instantiate,Standard::Create,Standard::Call,Standard::Send,Soyatec::Access,Soyatec::Import,;shadowedElements=es.deusto.ingenieria.aike.csp.algorithm/CSPAlgorithm,es.deusto.ingenieria.aike.csp.algorithm/BackTracking,es.deusto.ingenieria.aike.csp.formulation/Variable,es.deusto.ingenieria.aike.xml/InformationXMLReader,es.deusto.ingenieria.aike.csp.formulation/CSPproblem,es.deusto.ingenieria.aike.csp.formulation/Constraint;wireOptions=4"/>
+  <boardSetting snapToGeometry="true" gridEnabled="true" gridSpacing="15,15" gridOrigin="0,0" rulerUnit="pixel" gridVisibility="false">
+    <leftRuler/>
+    <topRuler/>
+  </boardSetting>
+  <classDiagramPreferences xsi:type="editmodel:UMLClassDiagramPreference" showPopupBars="true" showConnectionHandles="true" attributeSorter="Natural" methodSorter="Natural" showDependencyStereotype="true" showEnumerationStereotype="false" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+</editmodel:ClassDiagramEditModel>
