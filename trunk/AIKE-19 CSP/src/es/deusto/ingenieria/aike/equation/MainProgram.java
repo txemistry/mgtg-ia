@@ -11,7 +11,7 @@ public class MainProgram {
 	public static void main(String[] args) {
 		try 
 		{					
-			InformationXMLReader entornoSAXParser = new XMLReader("data/equationMinSec-1.xml");
+			InformationXMLReader entornoSAXParser = new XMLReader("data/equationMinSec-5.xml");
 			List<Integer> initialParameters = (List<Integer>) entornoSAXParser.getInformation();
 			
 			int multiplier = initialParameters.get(0);
@@ -29,7 +29,7 @@ public class MainProgram {
 			
 			
 			
-			for(int i = 0; i < problem.getVariables().size(); i++)
+		/*	for(int i = 0; i < problem.getVariables().size(); i++)
 			{
 				List<Integer> dominio = problem.getVariables().get(i).getDomain();
 				
@@ -43,11 +43,11 @@ public class MainProgram {
 				System.out.println();
 			}
 			
-			System.out.println("\nAHORA YA PODRIA LLAMAR AL METODOD DE BACKTRACKING");
+			System.out.println("\nAHORA YA PODRIA LLAMAR AL METODOD DE BACKTRACKING"); */
 			
 			
-			//BackTracking<Integer> backTracking = new BackTracking<Integer>();			
-			//problem.solve(backTracking);			
+			BackTracking<Integer> backTracking = new BackTracking<Integer>();			
+			problem.solve(backTracking);			
 		} 
 		
 		catch (Exception ex) 
