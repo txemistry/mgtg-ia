@@ -4,5 +4,6 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="lib/aike_csp.jar"/>
 	<classpathentry kind="lib" path="lib/aike_formulation.jar"/>
+	<classpathentry kind="con" path="com.soyatec.uml.CONTAINER"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
