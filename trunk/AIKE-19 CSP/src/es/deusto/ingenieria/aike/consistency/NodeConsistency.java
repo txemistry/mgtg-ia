@@ -13,15 +13,14 @@ public class NodeConsistency implements IConstraintPropagation
 	@Override
 	public void makeConsistent(List<Variable<Integer>> myVariables) 
 	{
-		//por cada varibale en la lista, se tiene que comprobar cuales de sus restricciones
-		//son unarias y actualizar los valores del dominio de la variable en curso
-		
+		//For each variable in the list, we have to check if their constraints
+		//are unary and change the values of the domain		
 		
 		for(int i = 0; i < myVariables.size(); i++)
 		{
 			Variable<Integer> varAux = myVariables.get(i);
 			
-			//nos recorremos todas las variables y miramos a ver si estan en restricciones unarias
+			//We loop all the variables and we look if they are unary 
 			for(int j = 0; j < varAux.getConstraints().size(); j++)
 			{
 				
@@ -29,11 +28,11 @@ public class NodeConsistency implements IConstraintPropagation
 				
 			
 			
-				//comprobamos si es unaria
+				//check if unary
 				if(myConstraint.getVariables().size() == 1)
 				{
-					//significa que es unaria
-					//ahora miramos que valores no cumplen sus restricciones
+					//It is unary
+					//now we check what values does not fit it
 					
 					varAux.getConstraints().remove(myConstraint);
 					j--;
@@ -43,17 +42,13 @@ public class NodeConsistency implements IConstraintPropagation
 					{
 						if(myConstraint.isSatisfied(varAux, myDomain.get(k)))
 						{
-							//significa que el valor en curso se le puede asignar asi que se deja
+							//We can assign this value, so we leave it
 						}
 						else
 						{
-							//isSatisfied me ha devuelto false por lo qeu deberiamos eliminar del
-							//dominio de la variable el valor domainValue
-							//myVariables.get(i).getDomain().remove(k);
-							
+							//We have to delete this value							
 							myDomain.remove(k);
-							k--; //esto es para que no se salte un valor, al borrar el anterior
-							
+							k--; 							
 						}
 					}
 					

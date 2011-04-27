@@ -26,10 +26,9 @@ public class FinalConstraint extends Constraint<Integer>
 		
 		if (cont == 6)
 		{
-			//Estan todas las variables asignadas menos la ultima que es G, por lo que la comprobacion
-			//final se puede hacer
-			//para ahcer mas facil la programacion guardaremos en variables auxiliares
-			//los contenidos del array de de variables
+			//All the variables are assigned except G, so we do the final check
+			//We put them in auxiliar variables to do it simple
+
 			
 			int A = this.getVariables().get(0).getValue();
 			int B = this.getVariables().get(1).getValue();

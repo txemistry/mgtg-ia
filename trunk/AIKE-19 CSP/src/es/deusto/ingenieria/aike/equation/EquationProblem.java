@@ -46,15 +46,14 @@ public class EquationProblem extends CSPproblem<Integer>
 	
 	private void createConstraints()
 	{
-		
-		//
-		//nos creamos una lista con las variables asociadas a la restriccion
+		 
+		//We create a list with the varibles that are associated with the constraint
 		for(int i = 0; i < 7; i++)
 		{
 			List<Variable<Integer>> constVariables = new ArrayList<Variable<Integer>>();
 			constVariables.add(this.getVariables().get(i));
 			Distinct distinct = new Distinct(constVariables, "" + (i+1) + "Distinct");
-			//ahora le tenemos que añadir a la variable i esta constraint
+			//We add to the i variable this constraint
 			this.getVariables().get(i).addConstraint(distinct);
 		}
 		
@@ -78,7 +77,7 @@ public class EquationProblem extends CSPproblem<Integer>
 		maxSec = new MaxSeconds(constVariables, "GSeconds");
 		this.getVariables().get(6).addConstraint(maxSec);
 		
-		//constraint final
+		//Final constraint
 		FinalConstraint test = new FinalConstraint(this.getVariables(), "finalConstraint");
 		for (Variable<Integer> aux : this.getVariables()) 
 		{
@@ -94,7 +93,6 @@ public class EquationProblem extends CSPproblem<Integer>
 	
 	private List<Integer> createDomain() 
 	{
-		//Every queen variable may have a row value from 1 to 8. 
 		List<Integer> digitValues = new ArrayList<Integer>();		
 		
 		for (int i=1; i<10; i++) 
